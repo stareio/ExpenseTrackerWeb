@@ -20,7 +20,7 @@ import model.CredentialValidator;
  *
  * @author star
  */
-public class ExpenseController extends HttpServlet {
+public class ExpensesController extends HttpServlet {
     
     private ConnectionManager cm;
     private CredentialValidator cv;
