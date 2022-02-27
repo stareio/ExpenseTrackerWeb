@@ -9,6 +9,6 @@ package model;
  *
  * @author star
  */
-public class ExpensesManager {
+public class ExpenseManager {
     
 }
