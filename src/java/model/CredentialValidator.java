@@ -14,14 +14,12 @@ import java.util.*;
  */
 public class CredentialValidator {
     
-    private User user;
     private Connection conn;
     private ConnectionManager cm;
     
     // returns false if incorrect username/password, otherwise redirects user to home page
     public boolean checkCreds(String username, String password) {
         
-        user = new User();
         conn = cm.getConn();
         
         try {
@@ -35,7 +33,7 @@ public class CredentialValidator {
             
             while (result.next()) {
                 String usernameResult = result.getString("username");
-                String passwordResult = result.getString("username");
+                String passwordResult = result.getString("password");
                 
                 if (username.equals(usernameResult) && password.equals(passwordResult)) {
                     return true;
@@ -45,8 +43,8 @@ public class CredentialValidator {
             result.close();
             
                 // notes for controller:
-                // if username exists, check the password
-                // else error page
+                // set the values on User class
+                // 
         }
         
         catch (SQLException sqle) {
