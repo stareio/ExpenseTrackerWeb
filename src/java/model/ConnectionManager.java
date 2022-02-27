@@ -12,11 +12,12 @@ import java.sql.*;
  * @author star
  */
 public class ConnectionManager {
+    private Connection conn;
     
-    public Connection getConn(String driver, String username, String password,
+    public Connection getConnnection(String driver, String username, String password,
                     String driverUrl, String hostname, String port, String database) {
         
-        Connection conn = null;
+        conn = null;
         
         try {
             // Load Driver
