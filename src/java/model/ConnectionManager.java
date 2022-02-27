@@ -12,9 +12,10 @@ import java.sql.*;
  * @author star
  */
 public class ConnectionManager {
+    
     private Connection conn;
     
-    public Connection getConnnection(String driver, String username, String password,
+    public Connection establishConn(String driver, String username, String password,
                     String driverUrl, String hostname, String port, String database) {
         
         conn = null;
@@ -46,6 +47,13 @@ public class ConnectionManager {
                                 + nfe.getMessage());
         }
         
+        return getConn();
+    }
+
+    /**
+     * @return the conn
+     */
+    public Connection getConn() {
         return conn;
     }
 }
