@@ -5,16 +5,13 @@
  */
 package controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.ResultSet;
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.io.*;
+import java.sql.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
 import model.ConnectionManager;
 import model.CredentialValidator;
+import model.ExpenseManager;
 
 /**
  *
@@ -23,7 +20,10 @@ import model.CredentialValidator;
 public class ExpenseController extends HttpServlet {
     
     private ConnectionManager cm;
+    private ExpenseManager em;
     private CredentialValidator cv;
+    
+    private Connection conn;
     
     public void init(ServletConfig config) throws ServletException {
         
@@ -42,12 +42,14 @@ public class ExpenseController extends HttpServlet {
     }
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+        throws ServletException, IOException {
         
-        String username = request.getParameter("loginUsername");
+        String username = request.getParameter("loginUsername");    // input of user on login page
         String password = request.getParameter("loginPassword");
+        conn = cm.getConn();
         
-        if (cv.checkCreds(username, password)) {
+        if (conn != null) {
+            if (cv.checkCreds(username, password, conn)) {
                 // call class that has the resulset of the expenses
                 ResultSet records = em.getExpenses();
 
@@ -58,6 +60,11 @@ public class ExpenseController extends HttpServlet {
             else {
                 response.sendRedirect("errorLogin.jsp");
             }
+        }
+        
+        else {
+            response.sendRedirect("errorConn.jsp");
+        }
  
     }
 

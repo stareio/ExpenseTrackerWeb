@@ -14,13 +14,8 @@ import java.util.*;
  */
 public class CredentialValidator {
     
-    private Connection conn;
-    private ConnectionManager cm;
-    
     // returns false if incorrect username/password, otherwise redirects user to home page
-    public boolean checkCreds(String username, String password) {
-        
-        conn = cm.getConn();
+    public boolean checkCreds(String username, String password, Connection conn) {
         
         try {
             String query = "SELECT * FROM user WHERE username = ? AND password = ?";

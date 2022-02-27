@@ -5,10 +5,33 @@
  */
 package model;
 
+import java.sql.*;
+
 /**
  *
  * @author star
  */
 public class ExpenseManager {
+    // create resultset
     
+    private Connection conn;
+    private ConnectionManager cm;
+    
+    public ResultSet getExpenses() {
+        
+        ResultSet rs = null;
+        conn = cm.getConn();
+        
+        try {
+            String query = "SELECT * FROM expense ORDER BY date";
+            PreparedStatement ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+        }
+        
+        catch (SQLException sqle) {
+            sqle.printStackTrace();
+        }
+        
+        return rs;
+    }
 }
