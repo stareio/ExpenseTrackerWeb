@@ -13,27 +13,43 @@ import java.util.*;
  * @author star
  */
 public class CredentialValidator {
+    
     private User user;
     private Connection conn;
+    private ConnectionManager cm;
     
-    public CredentialValidator(Connection conn) {
-        this.conn = conn;
-    }
-    
+    // returns false if incorrect username/password, otherwise redirects user to home page
     public boolean checkCreds(String username, String password) {
         user = new User();
-        conn = ConnectionManager.getConnection();
+        conn = cm.getConn();
         
         try {
-            String queryUsername = "";
-            PreparedStatement ps = conn.;
+            String query = "SELECT * FROM user WHERE username = ? AND password = ?";
+            PreparedStatement ps = conn.prepareStatement(query);
             
-            if ( && )
+            ps.setString(1, username);
+            ps.setString(2, password);
             
+            ResultSet result = ps.executeQuery();
+            
+            while (result.next()) {
+                String usernameResult = result.getString("username");
+                String passwordResult = result.getString("username");
+                
+                if (username.equals(usernameResult) && password.equals(passwordResult)) {
+                    return true;
+                }
+            }
+            
+            result.close();
+            
+                // notes for controller:
+                // if username exists, check the password
+                // else error page
         }
         
         catch (SQLException sqle) {
-            sqle.printStackTrace(SELECT );
+            sqle.printStackTrace();
         }
         
         return false;
