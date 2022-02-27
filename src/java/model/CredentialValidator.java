@@ -22,10 +22,11 @@ public class CredentialValidator {
     
     public boolean checkCreds(String username, String password) {
         user = new User();
+        conn = ConnectionManager.getConnection();
         
         try {
             String queryUsername = "";
-            PreparedStatement ps = ;
+            PreparedStatement ps = conn.;
             
             if ( && )
             
