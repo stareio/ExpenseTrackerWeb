@@ -35,7 +35,7 @@
         </init-param>
         <init-param>
             <param-name>databaseName</param-name>
-            <param-value>persondb</param-value>
+            <param-value>expensedb</param-value>
         </init-param>
     </servlet>
     
