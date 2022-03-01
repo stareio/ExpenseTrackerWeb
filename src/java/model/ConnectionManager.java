@@ -28,7 +28,7 @@ public class ConnectionManager {
             StringBuffer url;
             
             if (driver.equals("com.mysql.jdbc.Driver")
-                    || driver.equals("com.mysql.jdbc.Driver")) {
+                    || driver.equals("om.mysql.cj.jdbc.Driver")) {
                 url = new StringBuffer(driverUrl)
                         .append("://")
                         .append(hostname)
