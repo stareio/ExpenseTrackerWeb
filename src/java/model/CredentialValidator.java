@@ -18,7 +18,7 @@ public class CredentialValidator {
     public boolean checkCreds(String username, String password, Connection conn) {
         
         try {
-            String query = "SELECT * FROM user WHERE username = ? AND password = ?";
+            String query = "SELECT * FROM useracc WHERE username = ? AND password = ?";
             PreparedStatement ps = conn.prepareStatement(query);
             
             ps.setString(1, username);
