@@ -25,7 +25,11 @@ public class ConnectionManager {
             Class.forName(driver);
         
             // Establish Connection
-            StringBuffer url = new StringBuffer(driverUrl)
+            StringBuffer url;
+            
+            if (driver.equals("com.mysql.jdbc.Driver")
+                    || driver.equals("com.mysql.jdbc.Driver")) {
+                url = new StringBuffer(driverUrl)
                         .append("://")
                         .append(hostname)
                         .append(":")
@@ -33,6 +37,17 @@ public class ConnectionManager {
                         .append("/")
                         .append(database)
                         .append("?useSSL=false");
+            }
+            
+            else {
+                url = new StringBuffer(driverUrl)
+                        .append("://")
+                        .append(hostname)
+                        .append(":")
+                        .append(port)
+                        .append("/")
+                        .append(database);
+            }
             
             conn = DriverManager.getConnection(url.toString(), username, password);
         }
