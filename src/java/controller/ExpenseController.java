@@ -47,11 +47,10 @@ public class ExpenseController extends HttpServlet {
         throws ServletException, IOException {
 
         if (conn != null) {
-            String username = request.getParameter("loginUsername");    // inputs of user on login page
+            String username = request.getParameter("loginUsername");    // inputs of user in login form
             String password = request.getParameter("loginPassword");
             
             if (cv.checkCreds(username, password, conn)) {
-                // call class that has the resulset of the expenses
                 ResultSet records = em.getExpenses(conn);
 
                 request.setAttribute("results", records);

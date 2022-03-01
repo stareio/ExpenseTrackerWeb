@@ -33,6 +33,7 @@
                 ResultSet result = (ResultSet) request.getAttribute("results");
                 while (result.next()) {
             %>
+            
                 <tr>
                     <td><%= result.getString("date") %></td>
                     <td><%= result.getString("income_expense") %></td>
