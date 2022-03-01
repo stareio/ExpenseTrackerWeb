@@ -12,6 +12,7 @@ import javax.servlet.http.*;
 import model.ConnectionManager;
 import model.CredentialValidator;
 import model.ExpenseManager;
+import model.User;
 
 /**
  *
@@ -51,9 +52,15 @@ public class ExpenseController extends HttpServlet {
             String password = request.getParameter("loginPassword");
             
             if (cv.checkCreds(username, password, conn)) {
+                User user = new User();
+                String nickname = user.getNickname();
+                
                 ResultSet records = em.getExpenses(conn);
+                // add variable/s that stores computations then add more setAttribute
 
+                request.setAttribute("displayName", nickname);
                 request.setAttribute("results", records);
+//                request.setAttribute("results", records);
                 request.getRequestDispatcher("displayresult.jsp").forward(request, response);
             }
 
