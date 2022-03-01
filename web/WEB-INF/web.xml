@@ -58,7 +58,7 @@
     
     <servlet-mapping>
         <servlet-name>ExpenseController</servlet-name>
-        <url-pattern>/ExpenseController</url-pattern>
+        <url-pattern>/Expenses</url-pattern>
     </servlet-mapping>
     
     <session-config>
