@@ -14,13 +14,12 @@ import java.sql.*;
 public class ExpenseManager {
     // create resultset
     
-    private Connection conn;
-    private ConnectionManager cm;
+    Connection conn;
     
-    public ResultSet getExpenses() {
+    public ResultSet getExpenses(Connection conn) {
         
         ResultSet rs = null;
-        conn = cm.getConn();
+        this.conn = conn;
         
         try {
             String query = "SELECT * FROM expense ORDER BY date";
