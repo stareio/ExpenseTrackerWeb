@@ -19,11 +19,9 @@ import model.ExpenseManager;
  */
 public class ExpenseController extends HttpServlet {
     
-    private ConnectionManager cm;
-    private ExpenseManager em;
-    private CredentialValidator cv;
-    
-    private Connection conn;
+    ExpenseManager em;
+    CredentialValidator cv;
+    Connection conn;
     
     public void init(ServletConfig config) throws ServletException {
         
@@ -38,20 +36,23 @@ public class ExpenseController extends HttpServlet {
         String port = config.getInitParameter("dbPort");
         String database = config.getInitParameter("databaseName");
         
-        cm.establishConn(driver, username, password, driverUrl, hostname, port, database);
+        ConnectionManager cm = new ConnectionManager();
+        em = new ExpenseManager();
+        cv = new CredentialValidator();
+        
+        conn = cm.establishConn(driver, username, password, driverUrl, hostname, port, database);
     }
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-        
-        String username = request.getParameter("loginUsername");    // input of user on login page
-        String password = request.getParameter("loginPassword");
-        conn = cm.getConn();
-        
+
         if (conn != null) {
+            String username = request.getParameter("loginUsername");    // inputs of user on login page
+            String password = request.getParameter("loginPassword");
+            
             if (cv.checkCreds(username, password, conn)) {
                 // call class that has the resulset of the expenses
-                ResultSet records = em.getExpenses();
+                ResultSet records = em.getExpenses(conn);
 
                 request.setAttribute("results", records);
                 request.getRequestDispatcher("displayresult.jsp").forward(request, response);
