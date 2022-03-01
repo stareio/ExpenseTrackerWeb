@@ -17,7 +17,12 @@
             <p><% out.print(getServletContext().getInitParameter("title")); %></p>
         </header>
         
-        <h1>Expense Table</h1>
+        <%
+            // Retrieve the user's nickname
+            String name = (String) request.getAttribute("displayName");
+        %>
+        
+        <h1 align="center">Hello, <% out.print(name); %></h1>
         
         <table border="1" align="center">
             <tr>
