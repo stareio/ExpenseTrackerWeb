@@ -13,5 +13,12 @@
     </head>
     <body>
         <h1>Hello World!</h1>
+        
+        <form name="LoginForm" method="post" action="ExpenseController">
+            <input name="loginUsername" tpye="text" size="40"/>
+            <input name="loginPassword" tpye="text" size="40"/>
+            <input type="submit" value="Submit"/>
+            <br><br>
+        </form>
     </body>
 </html>
