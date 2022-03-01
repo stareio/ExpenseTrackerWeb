@@ -20,7 +20,7 @@ public class UserManager {
     public void getUser(String loginUser, Connection conn) {
         
         try {
-            String query = "SELECT * FROM user WHERE username = ?";
+            String query = "SELECT * FROM useracc WHERE username = ?";
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, loginUser);
             
