@@ -47,7 +47,7 @@
     <!--header-->
     <context-param>
         <param-name>title</param-name>
-        <param-value>Sophie's Web App (Work in progress...)</param-value>
+        <param-value>Sophie's Expense Tracker Web App (Work in progress...)</param-value>
     </context-param>
     
     <!--footer-->
@@ -56,11 +56,17 @@
         <param-value>University of Santo Tomas | SY 2021-2022</param-value>
     </context-param>
     
+    <servlet-mapping>
+        <servlet-name>ExpenseController</servlet-name>
+        <url-pattern>/ExpenseController</url-pattern>
+    </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
