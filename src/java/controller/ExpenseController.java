@@ -12,7 +12,7 @@ import javax.servlet.http.*;
 import model.ConnectionManager;
 import model.CredentialValidator;
 import model.ExpenseManager;
-import model.User;
+import model.UserManager;
 
 /**
  *
@@ -48,12 +48,13 @@ public class ExpenseController extends HttpServlet {
         throws ServletException, IOException {
 
         if (conn != null) {
-            String username = request.getParameter("loginUsername");    // inputs of user in login form
-            String password = request.getParameter("loginPassword");
+            String loginUser = request.getParameter("loginUsername");    // inputs of user in login form
+            String loginPass = request.getParameter("loginPassword");
             
-            if (cv.checkCreds(username, password, conn)) {
-                User user = new User();
-                String nickname = user.getNickname();
+            if (cv.checkCreds(loginUser, loginPass, conn)) {
+                UserManager um = new UserManager();
+                um.getUser(loginUser, conn);
+                String nickname = um.getNickname();
                 
                 ResultSet records = em.getExpenses(conn);
                 // add variable/s that stores computations then add more setAttribute
