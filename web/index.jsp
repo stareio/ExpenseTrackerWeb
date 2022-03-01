@@ -12,13 +12,21 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <header>
+            <p><% out.print(getServletContext().getInitParameter("title")); %></p>
+        </header>
+        
         <h1>Hello World!</h1>
         
-        <form name="LoginForm" method="post" action="ExpenseController">
-            <input name="loginUsername" type="text" size="40"/>
-            <input name="loginPassword" type="text" size="40"/>
+        <form name="LoginForm" method="" action="ExpenseController">
+            <input name="loginUsername" type="text" id="username" size="40" placeholder="Username"/>
+            <input name="loginPassword" type="text" id="password" size="40" placeholder="Password"/>
             <input type="submit" value="Submit"/>
             <br><br>
         </form>
+        
+        <footer>
+            <p><% out.print(getServletContext().getInitParameter("school")); %></p>
+        </footer>
     </body>
 </html>
