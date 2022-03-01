@@ -15,6 +15,9 @@ public class ExpenseManager {
     // create resultset
     
     Connection conn;
+    Double income;
+    Double expenses;
+    Double balance;
     
     public ResultSet getExpenses(Connection conn) {
         
@@ -32,5 +35,24 @@ public class ExpenseManager {
         }
         
         return rs;
+    }
+    
+    public double getIncome() {
+        
+        
+        return income;
+    }
+    
+    public double getExpenses() {
+        
+        
+        
+        return expenses;
+    }
+    
+    public double getBalance() {
+        
+        
+        return balance;
     }
 }
