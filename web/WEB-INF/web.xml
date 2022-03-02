@@ -41,6 +41,10 @@
         <servlet-name>UpdateServlet</servlet-name>
         <servlet-class>controller.UpdateServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>controller.LogoutServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ExpenseController</servlet-name>
         <url-pattern>/ExpenseController</url-pattern>
@@ -62,6 +66,10 @@
     <servlet-mapping>
         <servlet-name>UpdateServlet</servlet-name>
         <url-pattern>/UpdateServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/LogoutServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
