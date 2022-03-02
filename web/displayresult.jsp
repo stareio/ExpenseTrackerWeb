@@ -4,6 +4,7 @@
     Author     : star
 --%>
 
+<%@page import="model.User"%>
 <%@page import="model.Expense"%>
 <%@page import="java.util.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -19,11 +20,11 @@
         </header>
         
         <%
-            // Retrieve the user's nickname
-            String name = (String) request.getAttribute("displayName");
+            // retrieve the user's account
+            User account = (User) request.getAttribute("account");
         %>
         
-        <h1 align="center">Hello, <% out.print(name); %></h1>
+        <h1 align="center">Hello, <% out.print(account.getNickname()); %></h1>
         
         <table border="1" align="center">
             <tr>
@@ -36,7 +37,6 @@
             </tr>
             
             <%
-                // Retrieve the List
                 List<Expense> result = (ArrayList) request.getAttribute("results");
                 
                 for (Expense e : result) {
