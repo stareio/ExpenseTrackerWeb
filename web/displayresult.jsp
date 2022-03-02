@@ -32,13 +32,16 @@
                 <th>Amount</th>
                 <th>Category</th>
                 <th>Note</th>
+                <th>Action</th>
             </tr>
             
             <%
                 // Retrieve the List
                 List<Expense> result = (ArrayList) request.getAttribute("results");
+                int ctr = 0;
                 
                 for (Expense e : result) {
+                    e.setId(ctr);
             %>
             
                 <tr>
@@ -47,9 +50,22 @@
                     <td><%= e.printAmount() %></td>
                     <td><%= e.getCategory() %></td>
                     <td><%= e.getNote() %></td>
+                    <td>
+                        <form name="UpdateButton" method="post" action="ExpenseController">
+                            <input name="updateRecord" type="button" id="update" value="Update">
+                            <input name="id" type="hidden" value="<%=ctr%>">
+                        </form>
+                        
+                        <form name="DeleteButton" method="post" action="ExpenseController">
+                            <input name="deleteRecord" type="button" id="delete" value="Delete">
+                            <input name="id" type="hidden" value="<%=ctr%>">
+                        </form>
+                        
+                    </td>
                 </tr>
 
             <%
+                    ctr++;
                 }
             %>
         </table> 
