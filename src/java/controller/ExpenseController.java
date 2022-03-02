@@ -23,6 +23,7 @@ public class ExpenseController extends HttpServlet {
     
     ExpenseManager em;
     UserManager um;
+    User user;
     Connection conn;
     
     public void init(ServletConfig config) throws ServletException {
@@ -54,10 +55,11 @@ public class ExpenseController extends HttpServlet {
             String action = request.getParameter("action");
             System.out.println("action waaaa: " + action);
             
-            if (um.checkCreds(loginName, loginPass, conn)
-                    || action.equals("Update") || action.equals("Delete")) {
-                
-                User user = um.setUser(loginName, conn);
+            if (um.checkCreds(loginName, loginPass, conn)) {
+                user = um.loginUser(loginName, conn);
+            }
+            
+            if (user != null) {
                 
                 String date = "";
                 String descr = "";
