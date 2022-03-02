@@ -16,18 +16,30 @@ public class ExpenseManager {
     // create resultset
     
     Connection conn;
+    String action;
+    List<Expense> list;
+    
+    int id;
     Double income;
     Double expenses;
     Double balance;
-    List<Expense> list;
     
-    public List<Expense> getExpenses(Connection conn) {
+    public List<Expense> getExpenses(Connection conn, String action, String recordId) {
         
         list = new ArrayList<>();
         this.conn = conn;
         
         try {
             String query = "SELECT * FROM expense ORDER BY date";
+            
+            if (action.equals("Update")) {
+                query = "";
+            }
+            
+            else if (action.equals("Delete")) {
+                
+            }
+            
             PreparedStatement ps = conn.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             
@@ -50,6 +62,7 @@ public class ExpenseManager {
         return list;
     }
     
+    // computes the total income
     public double getIncome() {
         income = 0.00;
 
@@ -62,6 +75,7 @@ public class ExpenseManager {
         return income;
     }
     
+    // computes the total expenses
     public double getExpenses() {
         
         
@@ -69,6 +83,7 @@ public class ExpenseManager {
         return expenses;
     }
     
+    // computes the remaining balance
     public double getBalance() {
         
         
