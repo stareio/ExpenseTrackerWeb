@@ -37,15 +37,16 @@
             <%
                 // Retrieve the List
                 List<Expense> result = (ArrayList) request.getAttribute("results");
+                
                 for (Expense e : result) {
             %>
             
                 <tr>
-<!--                    <td><%= result.getString("date") %></td>
-                    <td><%= result.getString("income_expense") %></td>
-                    <td><%= result.getString("amount") %></td>
-                    <td><%= result.getString("category") %></td>
-                    <td><%= result.getString("note") %></td>-->
+                    <td><%= e.getDate() %></td>
+                    <td><%= e.getInex() %></td>
+                    <td><%= e.getAmount() %></td>
+                    <td><%= e.getCategory() %></td>
+                    <td><%= e.getNote() %></td>
                 </tr>
 
             <%
