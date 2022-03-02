@@ -26,8 +26,6 @@ public class Expense {
     
     // prints out the amount as either a whole number or not
     public String printAmount() {
-//        String strAmount = Double.toString(amount);
-        amount = 100.91;
         String strAmount = "";
         
         // checks if whole number
