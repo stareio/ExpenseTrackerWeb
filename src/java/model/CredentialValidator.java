@@ -6,7 +6,6 @@
 package model;
 
 import java.sql.*;
-import java.util.*;
 
 /**
  *
@@ -36,10 +35,6 @@ public class CredentialValidator {
             }
             
             result.close();
-            
-                // notes for controller:
-                // set the values on User class
-                // 
         }
         
         catch (SQLException sqle) {
