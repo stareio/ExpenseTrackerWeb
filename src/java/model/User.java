@@ -16,8 +16,7 @@ public class User {
     private String nickname;
     
     // constructor
-    public User() {
-    }
+    public User() { }
     
     /**
      * @return the username
