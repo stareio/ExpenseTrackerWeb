@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.sql.*;
+
 /**
  *
  * @author star
@@ -17,6 +19,13 @@ public class User {
     
     // constructor
     public User() { }
+    
+    // constructor
+    public User(String username, String password, String nickname) {
+        this.username = username;
+        this.password = password;
+        this.nickname = nickname;
+    }
     
     /**
      * @return the username
