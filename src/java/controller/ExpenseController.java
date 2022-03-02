@@ -51,8 +51,9 @@ public class ExpenseController extends HttpServlet {
         if (conn != null) {
             String loginUser = request.getParameter("loginUsername");    // inputs of user in login form
             String loginPass = request.getParameter("loginPassword");
+            String action = request.getParameter("action");
             
-            if (cv.checkCreds(loginUser, loginPass, conn)) {
+            if (action.equals("Submit") && cv.checkCreds(loginUser, loginPass, conn)) {
                 UserManager um = new UserManager();
                 um.getUser(loginUser, conn);
                 String nickname = um.getNickname();
@@ -64,6 +65,14 @@ public class ExpenseController extends HttpServlet {
                 request.setAttribute("results", records);
 //                request.setAttribute("results", records);
                 request.getRequestDispatcher("displayresult.jsp").forward(request, response);
+            }
+            
+            else if (action.equals("Update")) {
+                
+            }
+            
+            else if (action.equals("Delete")) {
+                
             }
 
             else {
