@@ -13,7 +13,7 @@ import java.sql.*;
  */
 public class UserManager {
     
-    public User setUser(String loginName, Connection conn) {
+    public User loginUser(String loginName, Connection conn) {
         
         User user = new User();
         
