@@ -35,7 +35,7 @@ public class ExpenseManager {
                 Expense e = new Expense();
                 
                 e.setDate(rs.getDate("date"));
-                e.setInex(rs.getString("inex"));
+                e.setInex(rs.getString("income_expense"));
                 e.setAmount(rs.getString("amount"));
                 e.setCategory(rs.getString("category"));
                 e.setNote(rs.getString("note"));
