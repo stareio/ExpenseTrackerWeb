@@ -19,7 +19,7 @@ public class Expense {
     private String inex;  // income/expense
     private double amount;
     private String category;
-    private String note;
+    private String descr;
     private int id;
     
     // constructor
@@ -112,17 +112,17 @@ public class Expense {
     }
 
     /**
-     * @return the note
+     * @return the descr
      */
-    public String getNote() {
-        return note;
+    public String getDescription() {
+        return descr;
     }
 
     /**
-     * @param note the note to set
+     * @param descr the descr to set
      */
-    public void setNote(String note) {
-        this.note = note;
+    public void setDescription(String descr) {
+        this.descr = descr;
     }
 
     /**
