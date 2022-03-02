@@ -30,8 +30,6 @@ public class UserManager {
 //                username = rs.getString("username");
 //                password = rs.getString("password");
                 nickname = rs.getString("nickname");
-                
-                System.out.println("nickname: " + nickname);
             }
         }
         
