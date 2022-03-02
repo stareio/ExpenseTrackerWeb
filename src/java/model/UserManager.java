@@ -13,40 +13,64 @@ import java.sql.*;
  */
 public class UserManager {
     
-//    private String username;
-//    private String password;
-    private String nickname;
-    
-    public void getUser(String loginUser, Connection conn) {
+    public User setUser(String loginName, Connection conn) {
+        
+        User user = new User();
         
         try {
             String query = "SELECT * FROM useracc WHERE username = ?";
             PreparedStatement ps = conn.prepareStatement(query);
-            ps.setString(1, loginUser);
+            ps.setString(1, loginName);
             
             ResultSet rs = ps.executeQuery();
+            user = new User();
             
             while (rs.next()) {
-                nickname = rs.getString("nickname");
+                String username = rs.getString("username");
+                String password = rs.getString("password");
+                String nickname = rs.getString("nickname");
+                
+                user.setUsername(username);
+                user.setPassword(password);
+                user.setNickname(nickname);
             }
         }
         
         catch (SQLException sqle) {
             sqle.printStackTrace();
         }
+        
+        return user;
     }
     
-    /**
-     * @return the nickname
-     */
-    public String getNickname() {
-        return nickname;
-    }
-
-    /**
-     * @param nickname the nickname to set
-     */
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    // returns false if incorrect username/password, otherwise redirects user to home page
+    public boolean checkCreds(String username, String password, Connection conn) {
+        
+        try {
+            String query = "SELECT * FROM useracc WHERE username = ? AND password = ?";
+            PreparedStatement ps = conn.prepareStatement(query);
+            
+            ps.setString(1, username);
+            ps.setString(2, password);
+            
+            ResultSet result = ps.executeQuery();
+            
+            while (result.next()) {
+                String usernameResult = result.getString("username");
+                String passwordResult = result.getString("password");
+                
+                if (username.equals(usernameResult) && password.equals(passwordResult)) {
+                    return true;
+                }
+            }
+            
+            result.close();
+        }
+        
+        catch (SQLException sqle) {
+            sqle.printStackTrace();
+        }
+        
+        return false;
     }
 }

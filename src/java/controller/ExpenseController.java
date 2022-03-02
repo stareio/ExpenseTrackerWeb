@@ -11,8 +11,8 @@ import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import model.ConnectionManager;
-import model.CredentialValidator;
 import model.ExpenseManager;
+import model.User;
 import model.UserManager;
 
 /**
@@ -22,7 +22,7 @@ import model.UserManager;
 public class ExpenseController extends HttpServlet {
     
     ExpenseManager em;
-    CredentialValidator cv;
+    UserManager um;
     Connection conn;
     
     public void init(ServletConfig config) throws ServletException {
@@ -40,7 +40,7 @@ public class ExpenseController extends HttpServlet {
         
         ConnectionManager cm = new ConnectionManager();
         em = new ExpenseManager();
-        cv = new CredentialValidator();
+        um = new UserManager();
         
         conn = cm.establishConn(driver, username, password, driverUrl, hostname, port, database);
     }
@@ -49,23 +49,27 @@ public class ExpenseController extends HttpServlet {
         throws ServletException, IOException {
 
         if (conn != null) {
-            String loginUser = request.getParameter("loginUsername");    // inputs of user in login form
+            String loginName = request.getParameter("loginUsername");    // inputs of user in login form
             String loginPass = request.getParameter("loginPassword");
             String action = request.getParameter("action");
+            System.out.println("action waaaa: " + action);
             
-            if (cv.checkCreds(loginUser, loginPass, conn)) {
-                UserManager um = new UserManager();
-                um.getUser(loginUser, conn);
-                String nickname = um.getNickname();
-                String recordId = null;
+            if (um.checkCreds(loginName, loginPass, conn)
+                    || action.equals("Update") || action.equals("Delete")) {
+                
+                User user = um.setUser(loginName, conn);
+                
+                String date = "";
+                String descr = "";
                 
                 if (action.equals("Update") || action.equals("Delete")) {
-                    recordId = request.getParameter("id");
+                    date = request.getParameter("date");
+                    descr = request.getParameter("descr");
                 }
                 
-                List records = em.getExpenses(conn, action, recordId);
+                List records = em.getExpenses(conn, action, date, descr);
 
-                request.setAttribute("displayName", nickname);
+                request.setAttribute("account", user);
                 request.setAttribute("results", records);
 //                request.setAttribute("results", records);
                 request.getRequestDispatcher("displayresult.jsp").forward(request, response);
