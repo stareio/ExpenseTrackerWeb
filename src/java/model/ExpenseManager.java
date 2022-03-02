@@ -50,7 +50,7 @@ public class ExpenseManager {
                 e.setInex(rs.getString("income_expense"));
                 e.setAmount(rs.getString("amount"));
                 e.setCategory(rs.getString("category"));
-                e.setNote(rs.getString("note"));
+                e.setDescription(rs.getString("description"));
                 list.add(e);
             }
         }
