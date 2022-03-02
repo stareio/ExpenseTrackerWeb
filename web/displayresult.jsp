@@ -38,10 +38,8 @@
             <%
                 // Retrieve the List
                 List<Expense> result = (ArrayList) request.getAttribute("results");
-                int ctr = 0;
                 
                 for (Expense e : result) {
-                    e.setId(ctr);
             %>
             
                 <tr>
@@ -52,20 +50,21 @@
                     <td><%= e.getDescription() %></td>
                     <td>
                         <form name="UpdateButton" method="post" action="ExpenseController">
-                            <input name="updateRecord" type="button" id="update" value="Update">
-                            <input name="id" type="hidden" value="<%=ctr%>">
+                            <input name="action" type="submit" id="update" value="Update">
+                            <input name="date" type="hidden" value="<%=e.getDate()%>">
+                            <input name="descr" type="hidden" value="<%=e.getDescription()%>">
                         </form>
                         
                         <form name="DeleteButton" method="post" action="ExpenseController">
-                            <input name="deleteRecord" type="button" id="delete" value="Delete">
-                            <input name="id" type="hidden" value="<%=ctr%>">
+                            <input name="action" type="submit" id="delete" value="Delete">
+                            <input name="date" type="hidden" value="<%=e.getDate()%>">
+                            <input name="descr" type="hidden" value="<%=e.getDescription()%>">
                         </form>
                         
                     </td>
                 </tr>
 
             <%
-                    ctr++;
                 }
             %>
         </table> 
