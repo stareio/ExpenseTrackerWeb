@@ -19,28 +19,41 @@ public class ExpenseManager {
     String action;
     List<Expense> list;
     
-    int id;
     Double income;
     Double expenses;
     Double balance;
     
-    public List<Expense> getExpenses(Connection conn, String action, String recordId) {
+    public List<Expense> getExpenses(Connection conn, String action, String date, String descr) {
         
         list = new ArrayList<>();
         this.conn = conn;
         
         try {
-            String query = "SELECT * FROM expense ORDER BY date";
+            String query = "";
+            System.out.println("action is: " + action);
             
-            if (action.equals("Update")) {
-                query = "";
-            }
-            
-            else if (action.equals("Delete")) {
+            if (!action.equals("Login")) {
+                System.out.println("date: " + date);
+                System.out.println("descr: " + descr);
                 
+                if (action.equals("Delete")) {
+                    query = "DELETE FROM expense WHERE date = ? AND description = ?";
+                    PreparedStatement ps = conn.prepareStatement(query);
+                    ps.setString(1, date);
+                    ps.setString(2, descr);
+
+                    ps.executeUpdate();
+                    System.out.println("record deleted!");
+                }
+                
+                else if (action.equals("Add")) {
+                    query = ""; // query for insert
+                }
             }
             
+            query = "SELECT * FROM expense ORDER BY date";
             PreparedStatement ps = conn.prepareStatement(query);
+            
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()) {
