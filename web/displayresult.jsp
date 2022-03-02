@@ -44,7 +44,7 @@
                 <tr>
                     <td><%= e.getDate() %></td>
                     <td><%= e.getInex() %></td>
-                    <td><%= e.getAmount() %></td>
+                    <td><%= e.printAmount() %></td>
                     <td><%= e.getCategory() %></td>
                     <td><%= e.getNote() %></td>
                 </tr>
