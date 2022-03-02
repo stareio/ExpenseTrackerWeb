@@ -31,7 +31,7 @@
                 <th>Income/Expense</th>
                 <th>Amount</th>
                 <th>Category</th>
-                <th>Note</th>
+                <th>Description</th>
                 <th>Action</th>
             </tr>
             
@@ -49,7 +49,7 @@
                     <td><%= e.getInex() %></td>
                     <td><%= e.printAmount() %></td>
                     <td><%= e.getCategory() %></td>
-                    <td><%= e.getNote() %></td>
+                    <td><%= e.getDescription() %></td>
                     <td>
                         <form name="UpdateButton" method="post" action="ExpenseController">
                             <input name="updateRecord" type="button" id="update" value="Update">
