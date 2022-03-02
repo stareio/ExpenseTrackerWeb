@@ -7,6 +7,7 @@ package controller;
 
 import java.io.*;
 import java.sql.*;
+import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import model.ConnectionManager;
@@ -56,7 +57,7 @@ public class ExpenseController extends HttpServlet {
                 um.getUser(loginUser, conn);
                 String nickname = um.getNickname();
                 
-                ResultSet records = em.getExpenses(conn);
+                List records = em.getExpenses(conn);
                 // add variable/s that stores computations then add more setAttribute
 
                 request.setAttribute("displayName", nickname);
