@@ -53,26 +53,22 @@ public class ExpenseController extends HttpServlet {
             String loginPass = request.getParameter("loginPassword");
             String action = request.getParameter("action");
             
-            if (action.equals("Submit") && cv.checkCreds(loginUser, loginPass, conn)) {
+            if (cv.checkCreds(loginUser, loginPass, conn)) {
                 UserManager um = new UserManager();
                 um.getUser(loginUser, conn);
                 String nickname = um.getNickname();
+                String recordId = null;
                 
-                List records = em.getExpenses(conn);
-                // add variable/s that stores computations then add more setAttribute
+                if (action.equals("Update") || action.equals("Delete")) {
+                    recordId = request.getParameter("id");
+                }
+                
+                List records = em.getExpenses(conn, action, recordId);
 
                 request.setAttribute("displayName", nickname);
                 request.setAttribute("results", records);
 //                request.setAttribute("results", records);
                 request.getRequestDispatcher("displayresult.jsp").forward(request, response);
-            }
-            
-            else if (action.equals("Update")) {
-                
-            }
-            
-            else if (action.equals("Delete")) {
-                
             }
 
             else {
