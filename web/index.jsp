@@ -19,10 +19,9 @@
         <h1>Hello World!</h1>
         
         <form name="LoginForm" method="post" action="ExpenseController">
-            <input name="loginUsername" type="text" id="username" size="40" placeholder="Username"/>
-            <input name="loginPassword" type="text" id="password" size="40" placeholder="Password"/>
+            <input name="loginUsername" type="text" id="login" size="40" placeholder="Username"/>
+            <input name="loginPassword" type="text" id="login" size="40" placeholder="Password"/>
             <input name="action" type="submit" id="submit-btn" value="Submit"/>
-            <br><br>
         </form>
         
         <footer>
