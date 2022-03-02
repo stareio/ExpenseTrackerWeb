@@ -2,8 +2,7 @@
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     <servlet>
         <servlet-name>ExpenseController</servlet-name>
-        <servlet-class>controller.ExpenseController</servlet-class>        
-        
+        <servlet-class>controller.ExpenseController</servlet-class>
         <init-param>
             <param-name>jdbcClassName</param-name>
             <!--<param-value>org.apache.derby.jdbc.ClientDriver</param-value>-->
@@ -38,35 +37,37 @@
             <param-value>expensedb</param-value>
         </init-param>
     </servlet>
-    
+    <servlet>
+        <servlet-name>UpdateServlet</servlet-name>
+        <servlet-class>controller.UpdateServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ExpenseController</servlet-name>
         <url-pattern>/ExpenseController</url-pattern>
     </servlet-mapping>
-    
     <!--header-->
     <context-param>
         <param-name>title</param-name>
         <param-value>Sophie's Expense Tracker Web App (Work in progress...)</param-value>
     </context-param>
-    
     <!--footer-->
     <context-param>
         <param-name>school</param-name>
         <param-value>University of Santo Tomas | SY 2021-2022</param-value>
     </context-param>
-    
     <servlet-mapping>
         <servlet-name>ExpenseController</servlet-name>
         <url-pattern>/Expenses</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>UpdateServlet</servlet-name>
+        <url-pattern>/UpdateServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
