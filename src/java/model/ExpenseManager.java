@@ -6,6 +6,7 @@
 package model;
 
 import java.sql.*;
+import java.util.*;
 
 /**
  *
@@ -18,27 +19,45 @@ public class ExpenseManager {
     Double income;
     Double expenses;
     Double balance;
+    List<Expense> list;
     
-    public ResultSet getExpenses(Connection conn) {
+    public List<Expense> getExpenses(Connection conn) {
         
-        ResultSet rs = null;
+        list = new ArrayList<>();
         this.conn = conn;
         
         try {
             String query = "SELECT * FROM expense ORDER BY date";
             PreparedStatement ps = conn.prepareStatement(query);
-            rs = ps.executeQuery();
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()) {
+                Expense e = new Expense();
+                
+                e.setDate(rs.getDate("date"));
+                e.setInex(rs.getString("inex"));
+                e.setAmount(rs.getString("amount"));
+                e.setCategory(rs.getString("category"));
+                e.setNote(rs.getString("note"));
+                list.add(e);
+            }
         }
         
         catch (SQLException sqle) {
             sqle.printStackTrace();
         }
         
-        return rs;
+        return list;
     }
     
     public double getIncome() {
-        
+        income = 0.00;
+
+        for (Expense e : list) {
+            if (e.getInex().equals("Income")) {
+                income = income + e.getAmount();
+            }
+        }
         
         return income;
     }
