@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>List of Expenses</title>
     </head>
     <body>
         <header>
@@ -42,7 +42,7 @@
             %>
             
                 <tr>
-                    <td><%= e.getDate() %></td>
+                    <td><%= e.printDate() %></td>
                     <td><%= e.getInex() %></td>
                     <td><%= e.printAmount() %></td>
                     <td><%= e.getCategory() %></td>
