@@ -7,7 +7,7 @@ package model;
 
 import java.math.RoundingMode;
 import java.sql.*;
-import java.text.DecimalFormat;
+import java.text.*;
 
 /**
  *
@@ -24,7 +24,7 @@ public class Expense {
     // constructor
     public Expense() { }
     
-    // prints out the amount as either a whole number or not
+    // returns the amount as either a whole number or not
     public String printAmount() {
         String strAmount = "";
         
@@ -42,6 +42,14 @@ public class Expense {
         }
         
         return strAmount;
+    }
+    
+    // returns the date in the MM/dd/yy format
+    public String printDate() {
+        DateFormat df = new SimpleDateFormat("MM/dd/yy");
+        String strDate = df.format(date);
+        
+        return strDate;
     }
     
     /**
