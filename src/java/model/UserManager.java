@@ -27,8 +27,6 @@ public class UserManager {
             ResultSet rs = ps.executeQuery();
             
             while (rs.next()) {
-//                username = rs.getString("username");
-//                password = rs.getString("password");
                 nickname = rs.getString("nickname");
             }
         }
