@@ -20,7 +20,6 @@ public class Expense {
     private double amount;
     private String category;
     private String descr;
-    private int id;
     
     // constructor
     public Expense() { }
@@ -123,20 +122,6 @@ public class Expense {
      */
     public void setDescription(String descr) {
         this.descr = descr;
-    }
-
-    /**
-     * @return the id
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(int id) {
-        this.id = id;
     }
 }
 
