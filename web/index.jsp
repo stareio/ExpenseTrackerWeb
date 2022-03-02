@@ -21,7 +21,7 @@
         <form name="LoginForm" method="post" action="ExpenseController">
             <input name="loginUsername" type="text" id="login" size="40" placeholder="Username"/>
             <input name="loginPassword" type="text" id="login" size="40" placeholder="Password"/>
-            <input name="action" type="submit" id="submit-btn" value="Submit"/>
+            <input name="action" type="submit" id="submit-btn" value="Login"/>
         </form>
         
         <footer>
