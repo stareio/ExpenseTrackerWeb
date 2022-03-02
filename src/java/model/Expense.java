@@ -5,7 +5,9 @@
  */
 package model;
 
+import java.math.RoundingMode;
 import java.sql.*;
+import java.text.DecimalFormat;
 
 /**
  *
@@ -19,7 +21,30 @@ public class Expense {
     private String category;
     private String note;
     
+    // constructor
     public Expense() { }
+    
+    // prints out the amount as either a whole number or not
+    public String printAmount() {
+//        String strAmount = Double.toString(amount);
+        amount = 100.91;
+        String strAmount = "";
+        
+        // checks if whole number
+        if (amount - (int)amount == 0) {
+            int i = (int) amount;
+            strAmount = Integer.toString(i);
+        }
+        
+        else {
+            DecimalFormat df = new DecimalFormat("0.00");
+            df.setRoundingMode(RoundingMode.DOWN);
+            
+            strAmount = df.format(amount);
+        }
+        
+        return strAmount;
+    }
     
     /**
      * @return the date
@@ -93,3 +118,6 @@ public class Expense {
         this.note = note;
     }
 }
+
+//References:
+//https://stackoverflow.com/questions/23019520/formating-a-number-to-two-decimals-without-rounding-up-and-converting-to-double
