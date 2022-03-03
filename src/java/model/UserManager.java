@@ -13,26 +13,35 @@ import java.sql.*;
  */
 public class UserManager {
     
-    public User loginUser(String loginName, Connection conn) {
+    public String username;
+    public String password;
+    public Connection conn;
+    
+    public User loginUser(String loginName, String loginPass, Connection conn) {
         
         User user = new User();
+        username = loginName;
+        password = loginPass;
+        this.conn = conn;
         
         try {
-            String query = "SELECT * FROM useracc WHERE username = ?";
-            PreparedStatement ps = conn.prepareStatement(query);
-            ps.setString(1, loginName);
-            
-            ResultSet rs = ps.executeQuery();
-            user = new User();
-            
-            while (rs.next()) {
-                String username = rs.getString("username");
-                String password = rs.getString("password");
-                String nickname = rs.getString("nickname");
-                
-                user.setUsername(username);
-                user.setPassword(password);
-                user.setNickname(nickname);
+            if (checkCreds()) {
+                String query = "SELECT * FROM useracc WHERE username = ?";
+                PreparedStatement ps = conn.prepareStatement(query);
+                ps.setString(1, loginName);
+
+                ResultSet rs = ps.executeQuery();
+                user = new User();
+
+                while (rs.next()) {
+                    String u = rs.getString("username");
+                    String p = rs.getString("password");
+                    String n = rs.getString("nickname");
+
+                    user.setUsername(u);
+                    user.setPassword(p);
+                    user.setNickname(n);
+                }
             }
         }
         
@@ -44,7 +53,7 @@ public class UserManager {
     }
     
     // returns false if incorrect username/password, otherwise redirects user to home page
-    public boolean checkCreds(String username, String password, Connection conn) {
+    public boolean checkCreds() {
         
         try {
             String query = "SELECT * FROM useracc WHERE username = ? AND password = ?";
