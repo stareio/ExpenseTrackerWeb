@@ -28,7 +28,7 @@ public class ConnectionManager {
             StringBuffer url;
             
             if (driver.equals("com.mysql.jdbc.Driver")
-                    || driver.equals("om.mysql.cj.jdbc.Driver")) {
+                    || driver.equals("com.mysql.cj.jdbc.Driver")) {
                 url = new StringBuffer(driverUrl)
                         .append("://")
                         .append(hostname)
@@ -36,7 +36,7 @@ public class ConnectionManager {
                         .append(port)
                         .append("/")
                         .append(database)
-                        .append("?useSSL=false");
+                        .append("?useSSL=false&allowPublicKeyRetrieval=true");
             }
             
             else {
