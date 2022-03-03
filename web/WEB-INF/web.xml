@@ -6,7 +6,7 @@
         <init-param>
             <param-name>jdbcClassName</param-name>
             <!--<param-value>org.apache.derby.jdbc.ClientDriver</param-value>-->
-            <param-value>com.mysql.jdbc.Driver</param-value>
+            <param-value>com.mysql.cj.jdbc.Driver</param-value>
         </init-param>
         <init-param>
             <param-name>dbUserName</param-name>
