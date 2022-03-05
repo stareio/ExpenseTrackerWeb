@@ -36,13 +36,13 @@
             </select>
             
             <p>Amount</p>
-            <input name="amount" type="text" size="25" placeholder="500; 256.25" required/>
+            <input name="amount" type="text" size="25" placeholder="ex: 500, 256.25" required/>
             
             <p>Category</p>
             <input name="category" type="text" size="25" placeholder="Food" required/>
             
             <p>Description</p>
-            <input name="descr" type="text" size="25" placeholder="ex: Rice" required/>
+            <input name="descr" type="text" size="25" placeholder="ex: Books, Rice" required/>
             
             <div>
             <input name="action" type="submit" id="submit-btn" value="Add Entry"/>
