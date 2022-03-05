@@ -48,6 +48,16 @@ public class ExpenseManager {
                 
                 else if (action.equals("Add")) {
                     query = ""; // query for insert
+                    
+                    query = "INSERT INTO expense WHERE NOT EXISTS "
+                            + "(SELECT FROM expense WHERE date = ? AND description = ?)";
+                    PreparedStatement ps = conn.prepareStatement(query);
+                    ps.setString(1, date);
+                    ps.setString(2, descr);
+                    
+                    ps.executeUpdate();
+                    
+                    System.out.println("record added!");
                 }
             }
             
@@ -84,6 +94,8 @@ public class ExpenseManager {
                 income = income + e.getAmount();
             }
         }
+        
+        System.out.println("income: " + income);
         
         return income;
     }
