@@ -21,6 +21,7 @@ import model.UserManager;
  */
 public class ExpenseController extends HttpServlet {
     
+    HttpSession session;
     ExpenseManager em;
     UserManager um;
     User user;
@@ -48,7 +49,9 @@ public class ExpenseController extends HttpServlet {
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-
+        
+        session = request.getSession();
+        
         if (conn != null) {
             String loginName = request.getParameter("loginUsername");    // inputs of user in login form
             String loginPass = request.getParameter("loginPassword");
@@ -62,16 +65,27 @@ public class ExpenseController extends HttpServlet {
                 
                 String date = "";
                 String descr = "";
+                String inex = "";
+                String amount = "";
+                String category = "";
                 
-                if (action.equals("Update") || action.equals("Delete")) {
+                if (!action.equals("Login")) {
                     date = request.getParameter("date");
                     descr = request.getParameter("descr");
+                    
+                    if (action.equals("Add Entry")) {
+                        inex = request.getParameter("inex");
+                        amount = request.getParameter("amount");
+                        category = request.getParameter("category");
+                    }
                 }
                 
                 List records = em.getExpenses(conn, action, date, descr);
-
-                request.setAttribute("account", user);
+                
+                System.out.println("user: " + user);
+                session.setAttribute("account", user);
                 request.setAttribute("results", records);
+                
                 request.getRequestDispatcher("displayresult.jsp").forward(request, response);
             }
 
