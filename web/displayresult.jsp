@@ -4,6 +4,7 @@
     Author     : star
 --%>
 
+<%@page import="model.ExpenseManager"%>
 <%@page import="model.User"%>
 <%@page import="model.Expense"%>
 <%@page import="java.util.*"%>
@@ -20,13 +21,31 @@
         </header>
         
         <%
-            // retrieve the user's account
+            ExpenseManager em = new ExpenseManager();
             User account = (User) session.getAttribute("account");
+            List<Expense> result = (ArrayList) request.getAttribute("results");
+            
+            double income = em.getIncome(result);
+            double expenses = em.getExpenses(result);
+            double balance = income - expenses;
         %>
         
         <h1 align="center">Hello, <% out.print(account.getNickname()); %></h1>
         
-        <table border="1" align="center">
+        <table border="1" align="center" id="compute-table">
+            <tr>
+                <th>Income</th>
+                <th>Expenses</th>
+                <th>Balance</th>
+            </tr>
+            <tr>
+                <td><%= em.printAmount(income) %></td>
+                <td><%= em.printAmount(expenses) %></td>
+                <td><%= em.printAmount(balance) %></td>
+            </tr>
+        </table>
+        
+        <table border="1" align="center" id="records-table">    
             <tr>
                 <th>Date</th>
                 <th>Income/Expense</th>
@@ -36,33 +55,29 @@
                 <th>Action</th>
             </tr>
             
-            <%
-                List<Expense> result = (ArrayList) request.getAttribute("results");
-                
+            <%                
                 for (Expense e : result) {
             %>
-            
-                <tr>
-                    <td><%= e.printDate() %></td>
-                    <td><%= e.getInex() %></td>
-                    <td><%= e.printAmount() %></td>
-                    <td><%= e.getCategory() %></td>
-                    <td><%= e.getDescription() %></td>
-                    <td>
-                        <form name="UpdateButton" method="post" id="update" action="Expenses">
-                            <input name="action" type="submit" value="Update">
-                            <input name="date" type="hidden" value="<%=e.getDate()%>">
-                            <input name="descr" type="hidden" value="<%=e.getDescription()%>">
-                        </form>
-                        
-                        <form name="DeleteButton" method="post" id="delete" action="Expenses">
-                            <input name="action" type="submit" value="Delete">
-                            <input name="date" type="hidden" value="<%=e.getDate()%>">
-                            <input name="descr" type="hidden" value="<%=e.getDescription()%>">
-                        </form>
-                    </td>
-                </tr>
+                    <tr>
+                        <td><%= e.printDate() %></td>
+                        <td><%= e.getInex() %></td>
+                        <td><%= em.printAmount(e.getAmount()) %></td>
+                        <td><%= e.getCategory() %></td>
+                        <td><%= e.getDescription() %></td>
+                        <td>
+                            <form name="UpdateButton" method="post" id="update" action="Expenses">
+                                <input name="action" type="submit" value="Update">
+                                <input name="date" type="hidden" value="<%=e.getDate()%>">
+                                <input name="descr" type="hidden" value="<%=e.getDescription()%>">
+                            </form>
 
+                            <form name="DeleteButton" method="post" id="delete" action="Expenses">
+                                <input name="action" type="submit" value="Delete">
+                                <input name="date" type="hidden" value="<%=e.getDate()%>">
+                                <input name="descr" type="hidden" value="<%=e.getDescription()%>">
+                            </form>
+                        </td>
+                    </tr>
             <%
                 }
             %>
