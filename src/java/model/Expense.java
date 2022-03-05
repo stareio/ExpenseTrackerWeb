@@ -24,26 +24,6 @@ public class Expense {
     // constructor
     public Expense() { }
     
-    // returns the amount as either a whole number or not
-    public String printAmount() {
-        String strAmount = "";
-        
-        // checks if whole number
-        if (amount - (int)amount == 0) {
-            int i = (int) amount;
-            strAmount = Integer.toString(i);
-        }
-        
-        else {
-            DecimalFormat df = new DecimalFormat("0.00");
-            df.setRoundingMode(RoundingMode.DOWN);
-            
-            strAmount = df.format(amount);
-        }
-        
-        return strAmount;
-    }
-    
     // returns the date in the MM/dd/yy format
     public String printDate() {
         DateFormat df = new SimpleDateFormat("MM/dd/yy");
