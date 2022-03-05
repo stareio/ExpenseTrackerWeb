@@ -12,8 +12,14 @@
         <title>Update List</title>
     </head>
     <body>
+        <header>
+            <p><% out.print(getServletContext().getInitParameter("title")); %></p>
+        </header>
+        
         <h1>Hello World!</h1>
         
-        
+        <footer>
+            <p><% out.print(getServletContext().getInitParameter("school")); %></p>
+        </footer>
     </body>
 </html>
