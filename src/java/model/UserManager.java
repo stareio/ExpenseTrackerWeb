@@ -25,6 +25,8 @@ public class UserManager {
         this.conn = conn;
         
         try {
+            System.out.println("input username & password: " + username + " & " + password);
+            
             if (checkCreds()) {
                 String query = "SELECT * FROM useracc WHERE username = ?";
                 PreparedStatement ps = conn.prepareStatement(query);
@@ -42,6 +44,10 @@ public class UserManager {
                     user.setPassword(p);
                     user.setNickname(n);
                 }
+            }
+            
+            else {
+                user = null;
             }
         }
         
