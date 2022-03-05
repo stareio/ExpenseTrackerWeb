@@ -21,7 +21,7 @@
         <!--accepts mm-dd-yyyy-->
         <% String patternDate = "/^(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])-\\d{4}$/";%>
         <!--accepts a max of XXXXXXXXX.XX--> 
-        <% String patternAmt = "^\\d{1,9}(\\.[0]\\d|\\.1[01])?$";%>
+        <% String patternAmount = "^\\d{1,9}(\\.[0]\\d|\\.1[01])?$";%>
         <!--accepts only either accented or non-accented letters; spaces are only allowed after a letter-->
         <% String patternText = "/^([a-zA-ZÀ-ÿ\u00f1\u00d1]+ ?)*$/";%>
         
@@ -37,7 +37,7 @@
             <input name="Inex" type="submit"/>
             
             <p>Amount</p>
-            <input name="Date" type="text" size="20"/>
+            <input name="Date" type="text" size="20" pattern="<%=patternAmount%>"/>
             
             <p>Category</p>
             <input name="Date" type="text" size="40" placeholder="Food" pattern="<%=patternText%>"/>
