@@ -36,7 +36,7 @@
             </select>
             
             <p>Amount</p>
-            <input name="amount" type="text" size="25" required/>
+            <input name="amount" type="text" size="25" placeholder="500; 256.25" required/>
             
             <p>Category</p>
             <input name="category" type="text" size="25" placeholder="Food" required/>
