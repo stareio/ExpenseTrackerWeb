@@ -21,7 +21,7 @@
         
         <%
             // retrieve the user's account
-            User account = (User) request.getAttribute("account");
+            User account = (User) session.getAttribute("account");
         %>
         
         <h1 align="center">Hello, <% out.print(account.getNickname()); %></h1>
@@ -51,19 +51,15 @@
                     <td>
                         <form name="UpdateButton" method="post" id="update" action="Expenses">
                             <input name="action" type="submit" value="Update">
-                            <input name="user" type="hidden" value="<%=account.getUsername()%>">
                             <input name="date" type="hidden" value="<%=e.getDate()%>">
                             <input name="descr" type="hidden" value="<%=e.getDescription()%>">
                         </form>
                         
                         <form name="DeleteButton" method="post" id="delete" action="Expenses">
                             <input name="action" type="submit" value="Delete">
-                            <!--check if still need to pass username-->
-                            <input name="user" type="hidden" value="<%=account.getUsername()%>">
                             <input name="date" type="hidden" value="<%=e.getDate()%>">
                             <input name="descr" type="hidden" value="<%=e.getDescription()%>">
                         </form>
-                        
                     </td>
                 </tr>
 
