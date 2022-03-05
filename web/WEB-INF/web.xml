@@ -47,7 +47,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>ExpenseController</servlet-name>
-        <url-pattern>/ExpenseController</url-pattern>
+        <url-pattern>/Expenses</url-pattern>
     </servlet-mapping>
     <!--header-->
     <context-param>
@@ -59,10 +59,6 @@
         <param-name>school</param-name>
         <param-value>University of Santo Tomas | SY 2021-2022</param-value>
     </context-param>
-    <servlet-mapping>
-        <servlet-name>ExpenseController</servlet-name>
-        <url-pattern>/Expenses</url-pattern>
-    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UpdateServlet</servlet-name>
         <url-pattern>/UpdateServlet</url-pattern>
