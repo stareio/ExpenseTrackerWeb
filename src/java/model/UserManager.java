@@ -43,6 +43,10 @@ public class UserManager {
                     user.setNickname(n);
                 }
             }
+            
+            else {
+                user = null;
+            }
         }
         
         catch (SQLException sqle) {
