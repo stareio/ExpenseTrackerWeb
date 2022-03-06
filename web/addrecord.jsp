@@ -14,7 +14,7 @@
     </head>
     <body>
         <header>
-            <p><% out.print(getServletContext().getInitParameter("title")); %></p>
+            <p><% out.print(getServletContext().getInitParameter("navbar")); %></p>
         </header>
         
         <%
@@ -50,7 +50,7 @@
         </form>
         
         <footer>
-            <p><% out.print(getServletContext().getInitParameter("school")); %></p>
+            <p><% out.print(getServletContext().getInitParameter("footer")); %></p>
         </footer>
     </body>
 </html>
