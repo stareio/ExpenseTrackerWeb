@@ -51,12 +51,12 @@
     </servlet-mapping>
     <!--header-->
     <context-param>
-        <param-name>title</param-name>
+        <param-name>navbar</param-name>
         <param-value>Sophie's Expense Tracker Web App (Work in progress...)</param-value>
     </context-param>
     <!--footer-->
     <context-param>
-        <param-name>school</param-name>
+        <param-name>footer</param-name>
         <param-value>University of Santo Tomas | SY 2021-2022</param-value>
     </context-param>
     <servlet-mapping>
