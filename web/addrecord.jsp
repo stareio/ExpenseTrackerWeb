@@ -14,7 +14,7 @@
     </head>
     <body>
         <header>
-            <p><% out.print(getServletContext().getInitParameter("navbar")); %></p>
+            <p><% out.print(getServletContext().getInitParameter("title")); %></p>
         </header>
         
         <%
@@ -39,18 +39,18 @@
             <input name="amount" type="text" size="25" placeholder="ex: 500, 256.25" required/>
             
             <p>Category</p>
-            <input name="category" type="text" size="25" placeholder="ex: Education, Food" required/>
+            <input name="category" type="text" size="25" placeholder="Food" required/>
             
             <p>Description</p>
             <input name="descr" type="text" size="25" placeholder="ex: Books, Rice" required/>
             
             <div>
-            <input name="action" type="submit" id="submit-btn" value="Insert Entry"/>
+            <input name="action" type="submit" id="submit-btn" value="Add Entry"/>
             </div>
         </form>
         
         <footer>
-            <p><% out.print(getServletContext().getInitParameter("footer")); %></p>
+            <p><% out.print(getServletContext().getInitParameter("school")); %></p>
         </footer>
     </body>
 </html>
