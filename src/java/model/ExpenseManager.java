@@ -5,9 +5,7 @@
  */
 package model;
 
-import java.math.RoundingMode;
 import java.sql.*;
-import java.text.DecimalFormat;
 import java.util.*;
 
 /**
@@ -15,6 +13,9 @@ import java.util.*;
  * @author star
  */
 public class ExpenseManager {
+    
+    private double income;
+    private double expenses;
     
     public List<Expense> getExpenses(Connection conn, String action, String date, String descr) {
         
@@ -76,9 +77,9 @@ public class ExpenseManager {
         return list;
     }
     
-    // computes the total income
-    public double getIncome(List<Expense> list) {
-        Double income = 0.00;
+    // computes & displays the total income
+    public String computeIncome(List<Expense> list) {
+        income = 0.00;
 
         for (Expense e : list) {
             if (e.getInex().equals("Income")) {
@@ -87,12 +88,12 @@ public class ExpenseManager {
         }
         
         System.out.println("income: " + income);
-        return income;
+        return printAmount(income);
     }
     
-    // computes the total expenses
-    public double getExpenses(List<Expense> list) {
-        Double expenses = 0.00;
+    // computes & displays the total expenses
+    public String computeExpenses(List<Expense> list) {
+        expenses = 0.00;
         
         for (Expense e : list) {
             if (e.getInex().equals("Expense")) {
@@ -102,21 +103,21 @@ public class ExpenseManager {
         
         System.out.println("income: " + expenses);
         
-        return expenses;
+        return printAmount(expenses);
     }
     
-    // computes the remaining balance (income - expenses)
-    public double getBalance(double income, double expenses) {
+    // computes & displays the remaining balance (income - expenses)
+    public String computeBalance() {
         Double balance = income - expenses;
         
-        return balance;
+        return printAmount(balance);
     }
     
     // returns the amount as either a whole number or not
     public String printAmount(double amount) {
         String strAmount = amount + "";
         
-        // checks if whole number
+        // removes decimal places if whole number
         if (amount - (int)amount == 0) {
             int i = (int) amount;
             strAmount = Integer.toString(i);
