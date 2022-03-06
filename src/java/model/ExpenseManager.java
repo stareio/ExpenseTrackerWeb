@@ -6,7 +6,10 @@
 package model;
 
 import java.sql.*;
-import java.util.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -124,5 +127,13 @@ public class ExpenseManager {
         }
         
         return strAmount;
+    }
+    
+    // returns the date in the MM/dd/yy format
+    public String printDate(Date date) {
+        DateFormat df = new SimpleDateFormat("MM/dd/yy");
+        String strDate = df.format(date);
+        
+        return strDate;
     }
 }
