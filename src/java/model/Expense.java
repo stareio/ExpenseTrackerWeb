@@ -5,7 +5,6 @@
  */
 package model;
 
-import java.math.RoundingMode;
 import java.sql.*;
 import java.text.*;
 
@@ -73,6 +72,7 @@ public class Expense {
     public void setDescription(String descr) {
         this.descr = descr;
     }
+    
 }
 
 //References:
