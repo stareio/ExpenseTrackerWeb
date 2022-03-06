@@ -13,19 +13,19 @@
     </head>
     <body>
         <header>
-            <p><% out.print(getServletContext().getInitParameter("title")); %></p>
+            <p><% out.print(getServletContext().getInitParameter("navbar")); %></p>
         </header>
         
         <h1>Hello World!</h1>
         
         <form name="LoginForm" method="post" action="Expenses">
             <input name="loginUsername" type="text" id="login" size="40" placeholder="Username"/>
-            <input name="loginPassword" type="text" id="login" size="40" placeholder="Password"/>
+            <input name="loginPassword" type="password" id="login" size="40" placeholder="Password"/>
             <input name="action" type="submit" id="submit-btn" value="Login"/>
         </form>
         
         <footer>
-            <p><% out.print(getServletContext().getInitParameter("school")); %></p>
+            <p><% out.print(getServletContext().getInitParameter("footer")); %></p>
         </footer>
     </body>
 </html>
