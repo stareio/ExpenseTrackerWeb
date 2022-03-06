@@ -63,7 +63,7 @@
                 for (Expense e : result) {
             %>
                     <tr>
-                        <td><%= e.printDate() %></td>
+                        <td><%= em.printDate(e.getDate()) %></td>
                         <td><%= e.getInex() %></td>
                         <td><%= em.printAmount(e.getAmount()) %></td>
                         <td><%= e.getCategory() %></td>
