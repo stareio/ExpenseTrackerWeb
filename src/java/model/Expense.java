@@ -6,7 +6,6 @@
 package model;
 
 import java.sql.*;
-import java.text.*;
 
 /**
  *
@@ -22,14 +21,6 @@ public class Expense {
     
     // constructor
     public Expense() { }
-    
-    // returns the date in the MM/dd/yy format
-    public String printDate() {
-        DateFormat df = new SimpleDateFormat("MM/dd/yy");
-        String strDate = df.format(date);
-        
-        return strDate;
-    }
     
     public Date getDate() {
         return date;
