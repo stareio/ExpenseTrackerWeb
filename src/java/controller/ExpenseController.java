@@ -73,10 +73,12 @@ public class ExpenseController extends HttpServlet {
                     date = request.getParameter("date");
                     descr = request.getParameter("descr");
                     
-                    if (action.equals("Add Entry")) {
+                    if (action.equals("Insert")) {
                         inex = request.getParameter("inex");
                         amount = request.getParameter("amount");
                         category = request.getParameter("category");
+                        
+                        // call method that adds record
                     }
                 }
                 
@@ -84,9 +86,15 @@ public class ExpenseController extends HttpServlet {
                 
                 System.out.println("user: " + user);
                 session.setAttribute("account", user);
-                request.setAttribute("results", records);
                 
-                request.getRequestDispatcher("displayresult.jsp").forward(request, response);
+                if(action.equals("Add an Entry")) {
+                    request.getRequestDispatcher("addrecord.jsp").forward(request, response);
+                }
+                
+                else {
+                    request.setAttribute("results", records);
+                    request.getRequestDispatcher("displayresult.jsp").forward(request, response);
+                }
             }
 
             else {
