@@ -17,17 +17,13 @@
     </head>
     <body>
         <header>
-            <p><% out.print(getServletContext().getInitParameter("title")); %></p>
+            <p><% out.print(getServletContext().getInitParameter("navbar")); %></p>
         </header>
         
         <%
             ExpenseManager em = new ExpenseManager();
             User account = (User) session.getAttribute("account");
             List<Expense> result = (ArrayList) request.getAttribute("results");
-            
-            double income = em.getIncome(result);
-            double expenses = em.getExpenses(result);
-            double balance = income - expenses;
         %>
         
         <h1 align="center">Hello, <% out.print(account.getNickname()); %></h1>
@@ -38,11 +34,19 @@
                 <th>Expenses</th>
                 <th>Balance</th>
             </tr>
-            <tr>
-                <td><%= em.printAmount(income) %></td>
-                <td><%= em.printAmount(expenses) %></td>
-                <td><%= em.printAmount(balance) %></td>
-            </tr>
+            
+            <%
+                for (Expense e : result) {
+            %>
+                    <tr>
+                        <td><%= em.computeIncome(result) %></td>
+                        <td><%= em.computeExpenses(result) %></td>
+                        <td><%= em.computeBalance() %></td>
+                    </tr>
+            <%
+                    break;
+                }
+            %>
         </table>
         
         <table border="1" align="center" id="records-table">    
@@ -81,10 +85,14 @@
             <%
                 }
             %>
-        </table> 
+        </table>
+        
+        <form name="AddRecord" method="post" action="Expenses">
+            <input name="action" type="submit" value="Add an Entry"/>
+        </form>
         
         <footer>
-            <p><% out.print(getServletContext().getInitParameter("school")); %></p>
+            <p><% out.print(getServletContext().getInitParameter("footer")); %></p>
         </footer>
     </body>
 </html>
