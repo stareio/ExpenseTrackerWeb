@@ -27,7 +27,7 @@
         <form name="AddRecordForm" method="post" id="add" action="Expenses">
             
             <p>Date</p>
-            <input name="date" type="text" size="25" placeholder="01-23-2000" required/>
+            <input name="date" type="text" size="25" placeholder="ex: 01/23/2000" required/>
             
             <p>Income/Expense</p>
             <select>
@@ -39,7 +39,7 @@
             <input name="amount" type="text" size="25" placeholder="ex: 500, 256.25" required/>
             
             <p>Category</p>
-            <input name="category" type="text" size="25" placeholder="Food" required/>
+            <input name="category" type="text" size="25" placeholder="ex: Education, Food" required/>
             
             <p>Description</p>
             <input name="descr" type="text" size="25" placeholder="ex: Books, Rice" required/>
