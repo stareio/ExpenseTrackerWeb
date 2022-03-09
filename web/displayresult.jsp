@@ -34,19 +34,13 @@
                 <th>Expenses</th>
                 <th>Balance</th>
             </tr>
-            
-            <%
-                for (Expense e : result) {
-            %>
-                    <tr>
-                        <td><%= em.computeIncome(result) %></td>
-                        <td><%= em.computeExpenses(result) %></td>
-                        <td><%= em.computeBalance() %></td>
-                    </tr>
-            <%
-                    break;
-                }
-            %>
+ 
+            <tr>
+                <td><%= em.computeIncome(result) %></td>
+                <td><%= em.computeExpenses(result) %></td>
+                <td><%= em.computeBalance() %></td>
+            </tr>
+ 
         </table>
         
         <table border="1" align="center" id="records-table">    
