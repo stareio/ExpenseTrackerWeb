@@ -5,7 +5,7 @@
  */
 package model;
 
-import java.sql.*;
+import java.util.Date;
 
 /**
  *
@@ -25,7 +25,7 @@ public class Expense {
     public Date getDate() {
         return date;
     }
-
+    
     public void setDate(Date date) {
         this.date = date;
     }
