@@ -69,6 +69,7 @@ public class ExpenseController extends HttpServlet {
                 String amount = "";
                 String category = "";
                 
+                System.out.println("action: " + action);
                 if (!action.equals("Login")) {
                     date = request.getParameter("date");
                     descr = request.getParameter("descr");
@@ -76,13 +77,17 @@ public class ExpenseController extends HttpServlet {
                     if (action.equals("Insert")) {
                         inex = request.getParameter("inex");
                         amount = request.getParameter("amount");
-                        category = request.getParameter("category");
-                        
-                        // call method that adds record
+                        category = request.getParameter("category");                        
                     }
                 }
                 
-                List records = em.getExpenses(conn, action, date, descr);
+                System.out.println("date: " + date);
+                System.out.println("inex: " + inex);
+                System.out.println("amount: " + amount);
+                System.out.println("category: " + category);
+                
+                List records = em.getExpenses(conn, action, date, descr,
+                                                inex, amount, category);
                 
                 System.out.println("user: " + user);
                 session.setAttribute("account", user);
