@@ -42,10 +42,8 @@ public class Expense {
         return amount;
     }
 
-    public void setAmount(String s) {
-        Double amount = Double.parseDouble(s);
-        
-        this.amount = amount;
+    public void setAmount(String s) {        
+        this.amount = Double.valueOf(s);
     }
 
     public String getCategory() {
