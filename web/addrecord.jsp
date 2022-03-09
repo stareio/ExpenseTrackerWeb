@@ -30,9 +30,9 @@
             <input name="date" type="text" size="25" placeholder="ex: 01/23/2000" required/>
             
             <p>Income/Expense</p>
-            <select>
-                <option name="inex" value="income">Income</option>
-                <option name="inex" value="expense">Expense</option>
+            <select name="inex">
+                <option value="Income">Income</option>
+                <option value="Expense">Expense</option>
             </select>
             
             <p>Amount</p>
@@ -45,7 +45,7 @@
             <input name="descr" type="text" size="25" placeholder="ex: Books, Rice" required/>
             
             <div>
-            <input name="action" type="submit" id="submit-btn" value="Add Entry"/>
+            <input name="action" type="submit" id="submit-btn" value="Insert"/>
             </div>
         </form>
         
