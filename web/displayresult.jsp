@@ -64,9 +64,10 @@
                         <td><%= e.getDescription() %></td>
                         <td>
                             <form name="UpdateButton" method="post" id="update" action="Expenses">
-                                <input name="action" type="submit" value="Update">
-                                <input name="date" type="hidden" value="<%=e.getDate()%>">
-                                <input name="descr" type="hidden" value="<%=e.getDescription()%>">
+                                <input name="action" type="submit" value="Update">                 
+                                <!--references for updating the record-->
+                                <input name="updateDate" type="hidden" value="<%= e.getDate() %>"/>
+                                <input name="updateDescr" type="hidden" value="<%= e.getDescription() %>"/>
                             </form>
 
                             <form name="DeleteButton" method="post" id="delete" action="Expenses">

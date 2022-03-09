@@ -25,6 +25,8 @@ public class ExpenseController extends HttpServlet {
     ExpenseManager em;
     UserManager um;
     User user;
+    String updateDate;
+    String updateDescr;
     Connection conn;
     
     public void init(ServletConfig config) throws ServletException {
@@ -68,32 +70,49 @@ public class ExpenseController extends HttpServlet {
                 String inex = "";
                 String amount = "";
                 String category = "";
+//                session.setAttribute("updateDate", null);
+//                session.setAttribute("updateDescr", null);
                 
                 System.out.println("action: " + action);
                 if (!action.equals("Login")) {
                     date = request.getParameter("date");
                     descr = request.getParameter("descr");
                     
-                    if (action.equals("Insert")) {
+                    if (action.equals("Add Record") || action.equals("Update Record")) {
                         inex = request.getParameter("inex");
                         amount = request.getParameter("amount");
-                        category = request.getParameter("category");                        
+                        category = request.getParameter("category");
+                        
+                        updateDate = (String) session.getAttribute("updateDate");
+                        updateDescr = (String) session.getAttribute("updateDescr");
                     }
                 }
                 
                 System.out.println("date: " + date);
+                System.out.println("descr: " + descr);
+                System.out.println("date: " + date);
                 System.out.println("inex: " + inex);
                 System.out.println("amount: " + amount);
                 System.out.println("category: " + category);
+                System.out.println("updateDate: " + updateDate);
+                System.out.println("updateDescr: " + updateDescr);
                 
                 List records = em.getExpenses(conn, action, date, descr,
-                                                inex, amount, category);
+                                                inex, amount, category,
+                                                updateDate, updateDescr);
                 
                 System.out.println("user: " + user);
                 session.setAttribute("account", user);
                 
                 if(action.equals("Add an Entry")) {
                     request.getRequestDispatcher("addrecord.jsp").forward(request, response);
+                }
+                
+                else if(action.equals("Update")) {
+                    session.setAttribute("updateDate", request.getParameter("updateDate"));
+                    session.setAttribute("updateDescr", request.getParameter("updateDescr"));
+                    
+                    request.getRequestDispatcher("updaterecord.jsp").forward(request, response);
                 }
                 
                 else {

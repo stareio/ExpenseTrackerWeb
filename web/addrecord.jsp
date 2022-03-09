@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Update List</title>
+        <title>Add Record</title>
     </head>
     <body>
         <header>
@@ -22,7 +22,7 @@
             User account = (User) session.getAttribute("account");
         %>
         
-        <h1>Hello, <% out.print(account.getNickname()); %>! Let's add a record!</h1>
+        <h1>Hello, <% out.print(account.getNickname()); %>! Let's <u>add</u> a record!</h1>
         
         <form name="AddRecordForm" method="post" id="add" action="Expenses">
             
@@ -45,7 +45,7 @@
             <input name="descr" type="text" size="25" placeholder="ex: Books, Rice" required/>
             
             <div>
-            <input name="action" type="submit" id="submit-btn" value="Insert"/>
+                <input name="action" type="submit" id="add-btn" value="Add Record"/>
             </div>
         </form>
         

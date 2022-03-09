@@ -26,7 +26,8 @@ public class ExpenseManager {
     private double expenses;
     
     public List<Expense> getExpenses(Connection conn, String action, String date, String descr,
-                                        String inex, String amount, String category) {
+                                        String inex, String amount, String category,
+                                        String updateDate, String updateDescr) {
         
         List<Expense> list = new ArrayList<>();
         
@@ -46,31 +47,41 @@ public class ExpenseManager {
                     System.out.println("record deleted!");
                 }
                 
-                else if (action.equals("Insert")) {                    
+                else if (action.equals("Add Record")) {                    
                     query = "INSERT INTO expense VALUES(?,?,?,?,?)";
                     PreparedStatement ps = conn.prepareStatement(query);
                     
-                    try {
-                        SimpleDateFormat sdfParse = new SimpleDateFormat("MM/dd/yyyy");
-                        SimpleDateFormat sdfFormat = new SimpleDateFormat("yyyy-MM-dd");
-                        
-                        Date parsedDate = sdfParse.parse(date);
-                        
-                        ps.setString(1, sdfFormat.format(parsedDate));
-                        ps.setString(2, inex);
-                        ps.setString(3, amount);
-                        ps.setString(4, category);
-                        ps.setString(5, descr);
+                    ps.setString(1, date);
+                    ps.setString(2, inex);
+                    ps.setString(3, amount);
+                    ps.setString(4, category);
+                    ps.setString(5, descr);
 
-                        ps.executeUpdate();
-                        System.out.println("record added!");
-                    }
+                    ps.executeUpdate();
+                    System.out.println("record added!");
+                }
+                
+                else if (action.equals("Update Record")) {
+                    query = "UPDATE expense SET date=?, income_expense=?, " +
+                                "amount=?, category=?, description=? " +
+                                "WHERE (date=? AND description=?)";
+                    PreparedStatement ps = conn.prepareStatement(query);
                     
-                    catch (ParseException pe) {
-                        pe.printStackTrace();
-                    }
+                    // reformat the input date
+                    SimpleDateFormat sdfParse = new SimpleDateFormat("MM/dd/yyyy");
+                    SimpleDateFormat sdfFormat = new SimpleDateFormat("yyyy-MM-dd");
+                    Date parsedDate = sdfParse.parse(date);
                     
+                    ps.setString(1, sdfFormat.format(parsedDate));
+                    ps.setString(2, inex);
+                    ps.setString(3, amount);
+                    ps.setString(4, category);
+                    ps.setString(5, descr);
+                    ps.setString(6, updateDate);
+                    ps.setString(7, updateDescr);
                     
+                    ps.executeUpdate();
+                    System.out.println("record added!");
                 }
             }
             
@@ -93,6 +104,10 @@ public class ExpenseManager {
         
         catch (SQLException sqle) {
             sqle.printStackTrace();
+        }
+        
+        catch (ParseException pe) {
+            pe.printStackTrace();
         }
         
         return list;
