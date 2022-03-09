@@ -5,10 +5,15 @@
  */
 package model;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,7 +25,8 @@ public class ExpenseManager {
     private double income;
     private double expenses;
     
-    public List<Expense> getExpenses(Connection conn, String action, String date, String descr) {
+    public List<Expense> getExpenses(Connection conn, String action, String date, String descr,
+                                        String inex, String amount, String category) {
         
         List<Expense> list = new ArrayList<>();
         
@@ -29,8 +35,6 @@ public class ExpenseManager {
             System.out.println("action is: " + action);
             
             if (!action.equals("Login")) {
-                System.out.println("date: " + date);
-                System.out.println("descr: " + descr);
                 
                 if (action.equals("Delete")) {
                     query = "DELETE FROM expense WHERE date = ? AND description = ?";
@@ -42,17 +46,31 @@ public class ExpenseManager {
                     System.out.println("record deleted!");
                 }
                 
-                else if (action.equals("Add")) {
-                    query = ""; // query for insert
-                    
-                    query = "INSERT INTO expense WHERE NOT EXISTS "
-                            + "(SELECT FROM expense WHERE date = ? AND description = ?)";
+                else if (action.equals("Insert")) {                    
+                    query = "INSERT INTO expense VALUES(?,?,?,?,?)";
                     PreparedStatement ps = conn.prepareStatement(query);
-                    ps.setString(1, date);
-                    ps.setString(2, descr);
                     
-                    ps.executeUpdate();
-                    System.out.println("record added!");
+                    try {
+                        SimpleDateFormat sdfParse = new SimpleDateFormat("MM/dd/yyyy");
+                        SimpleDateFormat sdfFormat = new SimpleDateFormat("yyyy-MM-dd");
+                        
+                        Date parsedDate = sdfParse.parse(date);
+                        
+                        ps.setString(1, sdfFormat.format(parsedDate));
+                        ps.setString(2, inex);
+                        ps.setString(3, amount);
+                        ps.setString(4, category);
+                        ps.setString(5, descr);
+
+                        ps.executeUpdate();
+                        System.out.println("record added!");
+                    }
+                    
+                    catch (ParseException pe) {
+                        pe.printStackTrace();
+                    }
+                    
+                    
                 }
             }
             
@@ -137,3 +155,6 @@ public class ExpenseManager {
         return strDate;
     }
 }
+
+// reference:
+// parsing & formatting date: https://stackoverflow.com/questions/15546128/how-to-parse-string-06-24-1989-into-date-06-24-1989-format-using-simpledatefor
