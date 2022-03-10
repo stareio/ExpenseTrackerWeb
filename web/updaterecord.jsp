@@ -46,6 +46,8 @@
             
             <div>
                 <input name="action" type="submit" id="update-btn" value="Update Record"/>
+                <input name="updateDate" type="hidden" value=""/>
+                <input name="updateDescr" type="hidden" value=""/>
             </div>
         </form>
         
