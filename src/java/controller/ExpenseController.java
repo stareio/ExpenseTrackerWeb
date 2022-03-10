@@ -11,6 +11,7 @@ import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import model.ConnectionManager;
+import model.EntryValidator;
 import model.ExpenseManager;
 import model.User;
 import model.UserManager;
@@ -24,6 +25,7 @@ public class ExpenseController extends HttpServlet {
     HttpSession session;
     ExpenseManager em;
     UserManager um;
+    EntryValidator ev;
     User user;
     String updateDate;
     String updateDescr;
@@ -45,6 +47,7 @@ public class ExpenseController extends HttpServlet {
         ConnectionManager cm = new ConnectionManager();
         em = new ExpenseManager();
         um = new UserManager();
+        ev = new EntryValidator();
         
         conn = cm.establishConn(driver, username, password, driverUrl, hostname, port, database);
     }
@@ -54,15 +57,18 @@ public class ExpenseController extends HttpServlet {
         
         session = request.getSession();
         
+        // check if connection is null
         if (conn != null) {
             String loginName = request.getParameter("loginUsername");    // inputs of user in login form
             String loginPass = request.getParameter("loginPassword");
             String action = request.getParameter("action");
             
+            // check if user is logging in
             if (action.equals("Login")) {
                 user = um.loginUser(loginName, loginPass, conn);
             }
             
+            // check if user successfully logged in
             if (user != null) {
                 
                 String date = "";
@@ -70,10 +76,10 @@ public class ExpenseController extends HttpServlet {
                 String inex = "";
                 String amount = "";
                 String category = "";
-//                session.setAttribute("updateDate", null);
-//                session.setAttribute("updateDescr", null);
                 
+                System.out.println("");
                 System.out.println("action: " + action);
+                
                 if (!action.equals("Login")) {
                     date = request.getParameter("date");
                     descr = request.getParameter("descr");
@@ -83,11 +89,13 @@ public class ExpenseController extends HttpServlet {
                         amount = request.getParameter("amount");
                         category = request.getParameter("category");
                         
+                        // reference values for update record
                         updateDate = (String) session.getAttribute("updateDate");
                         updateDescr = (String) session.getAttribute("updateDescr");
                     }
                 }
-                
+
+            // ==========================================================
                 System.out.println("date: " + date);
                 System.out.println("descr: " + descr);
                 System.out.println("date: " + date);
@@ -97,37 +105,47 @@ public class ExpenseController extends HttpServlet {
                 System.out.println("updateDate: " + updateDate);
                 System.out.println("updateDescr: " + updateDescr);
                 
-                List records = em.getExpenses(conn, action, date, descr,
+                // for adding/updating an entry, check date & amount values
+                if ( (action.equals("Add Record") || action.equals("Update Record"))
+                        && (!ev.checkDate(date) || !ev.checkAmount(amount))) {
+                    response.sendRedirect("error/errorEntry.jsp");
+                }
+                
+                // retrieve the list of records 
+                else {
+                    List records = em.getExpenses(conn, action, date, descr,
                                                 inex, amount, category,
                                                 updateDate, updateDescr);
                 
-                System.out.println("user: " + user);
-                session.setAttribute("account", user);
-                
-                if(action.equals("Add an Entry")) {
-                    request.getRequestDispatcher("addrecord.jsp").forward(request, response);
-                }
-                
-                else if(action.equals("Update")) {
-                    session.setAttribute("updateDate", request.getParameter("updateDate"));
-                    session.setAttribute("updateDescr", request.getParameter("updateDescr"));
-                    
-                    request.getRequestDispatcher("updaterecord.jsp").forward(request, response);
-                }
-                
-                else {
-                    request.setAttribute("results", records);
-                    request.getRequestDispatcher("displayresult.jsp").forward(request, response);
+                    System.out.println("user: " + user);
+                    session.setAttribute("account", user);
+
+                    switch (action) {
+                        case "Add an Entry":
+                            request.getRequestDispatcher("addrecord.jsp").forward(request, response);
+                            break;
+                        case "Update":
+                            session.setAttribute("updateDate", request.getParameter("updateDate"));
+                            session.setAttribute("updateDescr", request.getParameter("updateDescr"));
+
+                            request.getRequestDispatcher("updaterecord.jsp").forward(request, response);
+
+                            break;
+                        default:
+                            request.setAttribute("results", records);
+                            request.getRequestDispatcher("displayresult.jsp").forward(request, response);
+                            break;
+                    }
                 }
             }
 
             else {
-                response.sendRedirect("errorLogin.jsp");
+                response.sendRedirect("error/errorLogin.jsp");
             }
         }
         
         else {
-            response.sendRedirect("errorConn.jsp");
+            response.sendRedirect("error/errorConn.jsp");
         }
  
     }
