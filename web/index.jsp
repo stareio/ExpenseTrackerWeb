@@ -16,7 +16,7 @@
             <p><% out.print(getServletContext().getInitParameter("navbar")); %></p>
         </header>
         
-        <h1>Hello World!</h1>
+        <h1>Login</h1>
         
         <form name="LoginForm" method="post" action="Expenses">
             <input name="loginUsername" type="text" id="login" size="40" placeholder="Username"/>
