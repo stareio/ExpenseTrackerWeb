@@ -81,7 +81,7 @@ public class ExpenseManager {
                     ps.setString(7, updateDescr);
                     
                     ps.executeUpdate();
-                    System.out.println("record added!");
+                    System.out.println("record updated!");
                 }
             }
             
