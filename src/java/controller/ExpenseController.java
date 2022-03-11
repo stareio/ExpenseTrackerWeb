@@ -113,9 +113,8 @@ public class ExpenseController extends HttpServlet {
                 
                 // retrieve the list of records 
                 else {
-                    List records = em.getExpenses(conn, action, date, descr,
-                                                inex, amount, category,
-                                                updateDate, updateDescr);
+                    List records = em.getExpenses(conn, action, date, descr, inex, amount, category,
+                                                    updateDate, updateDescr);
 
                     switch (action) {
                         case "Add an Entry":
@@ -124,7 +123,8 @@ public class ExpenseController extends HttpServlet {
                         case "Update":
                             session.setAttribute("updateDate", request.getParameter("updateDate"));
                             session.setAttribute("updateDescr", request.getParameter("updateDescr"));
-
+                            
+                            request.setAttribute("results", records);
                             request.getRequestDispatcher("updaterecord.jsp").forward(request, response);
 
                             break;
