@@ -8,3 +8,24 @@ and open the template in the editor.
     Author     : star
 */
 
+#displayresult-container {
+    min-width: 50%;
+    max-width: 70%;
+}
+
+#compute-table {
+    min-width: 50%;
+    max-width: 60%;
+}
+
+#compute-table td:hover, #compute-table th:hover {
+    background-color: rgba(0,0,0,.075);
+}
+
+#records-table td:nth-child(5) {
+    width: 100%;
+}
+
+#update, #delete {
+    min-width: 75px;
+}
