@@ -51,13 +51,27 @@ public class ExpenseManager {
                         {
                             query = "INSERT INTO expense VALUES(?,?,?,?,?)";
                             PreparedStatement ps = conn.prepareStatement(query);
+                            
                             ps.setString(1, date);
                             ps.setString(2, inex);
                             ps.setString(3, amount);
                             ps.setString(4, category);
                             ps.setString(5, descr);
                             ps.executeUpdate();
+                            
                             System.out.println("record added!");
+                            break;
+                        }
+                    case "Update":
+                        {
+                            query = "SELECT FROM expense WHERE date = ? AND description = ?";
+                            PreparedStatement ps = conn.prepareStatement(query);
+                            
+                            ps.setString(1, date);
+                            ps.setString(2, descr);
+                            ps.executeUpdate();
+                            
+                            System.out.println("record retrieved for updating!");
                             break;
                         }
                     case "Update Record":
@@ -66,10 +80,12 @@ public class ExpenseManager {
                                     "amount=?, category=?, description=? " +
                                     "WHERE (date=? AND description=?)";
                             PreparedStatement ps = conn.prepareStatement(query);
+                            
                             // reformat the input date
                             SimpleDateFormat sdfParse = new SimpleDateFormat("MM/dd/yyyy");
                             SimpleDateFormat sdfFormat = new SimpleDateFormat("yyyy-MM-dd");
                             Date parsedDate = sdfParse.parse(date);
+                            
                             ps.setString(1, sdfFormat.format(parsedDate));
                             ps.setString(2, inex);
                             ps.setString(3, amount);
@@ -78,6 +94,7 @@ public class ExpenseManager {
                             ps.setString(6, updateDate);
                             ps.setString(7, updateDescr);
                             ps.executeUpdate();
+                            
                             System.out.println("record updated!");
                             break;
                         }
