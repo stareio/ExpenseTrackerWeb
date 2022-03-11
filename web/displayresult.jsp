@@ -14,6 +14,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>List of Expenses</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     </head>
     <body>
         <header>
@@ -26,7 +27,7 @@
             List<Expense> result = (ArrayList) request.getAttribute("results");
         %>
         
-        <table border="1" align="center" id="compute-table">
+        <table id="compute-table" align="center" >
             <tr>
                 <th>Income</th>
                 <th>Expenses</th>
@@ -41,7 +42,7 @@
  
         </table>
         
-        <table border="1" align="center" id="records-table">    
+        <table id="records-table" align="center" >    
             <tr>
                 <th>Date</th>
                 <th>Income/Expense</th>
