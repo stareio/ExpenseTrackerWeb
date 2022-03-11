@@ -25,7 +25,6 @@ public class ExpenseController extends HttpServlet {
     ExpenseManager em;
     EntryValidator ev;
     UserManager um;
-    User user;
     String updateDate;
     String updateDescr;
     Connection conn;
@@ -66,17 +65,25 @@ public class ExpenseController extends HttpServlet {
 
             // check if user is logging in
             if (action.equals("Login")) {
+                
                 String loginName = request.getParameter("loginUsername");    // inputs of user in login form
                 String loginPass = request.getParameter("loginPassword");
-                user = um.loginUser(loginName, loginPass, conn);
+                
+                User user = um.loginUser(loginName, loginPass, conn);
                 
                 session = request.getSession();
                 session.setAttribute("account", user);
                 System.out.println("user: " + user);
             }
             
+            else if (session.getAttribute("account") == null) {
+                response.sendRedirect("index.jsp");
+            }
+            
+            // ======================================================
+            
             // check if user is already logged in
-            if (session != null && session.getAttribute("account") != null) {
+            if (session.getAttribute("account") != null) {
                 
                 String date = "";
                 String descr = "";

@@ -37,17 +37,13 @@
             <param-value>expensedb</param-value>
         </init-param>
     </servlet>
-    <servlet>
-        <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>controller.LoginServlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>ExpenseController</servlet-name>
         <url-pattern>/Expenses</url-pattern>
     </servlet-mapping>
     <!--header-->
     <context-param>
-        <param-name>navbar</param-name>
+        <param-name>header</param-name>
         <param-value>Sophie's Expense Tracker Web App (Work in progress...)</param-value>
     </context-param>
     <!--footer-->
@@ -62,10 +58,6 @@
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/Logout</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>/Login</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

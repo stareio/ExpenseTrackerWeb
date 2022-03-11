@@ -14,7 +14,7 @@
     </head>
     <body>
         <header>
-            <p><% out.print(getServletContext().getInitParameter("navbar")); %></p>
+            <p><% out.print(getServletContext().getInitParameter("header")); %></p>
         </header>
         
         <%

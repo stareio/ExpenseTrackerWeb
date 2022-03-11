@@ -21,16 +21,12 @@ public class LogoutServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             
-            HttpSession session = request.getSession();
-            
-            if (session.getAttribute("account") != null) {
+            HttpSession session = request.getSession(false);
                 
-                session.removeAttribute("account");
-                session.invalidate();
-                System.out.println("Logged out");
+            session.removeAttribute("account");
+            session.invalidate();
+            System.out.println("Logged out");
 
-                response.sendRedirect("index.jsp");
-                return;
-            }
+            request.getRequestDispatcher("index.jsp").include(request, response);
     }
 }

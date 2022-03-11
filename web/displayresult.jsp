@@ -17,7 +17,7 @@
     </head>
     <body>
         <header>
-            <p><% out.print(getServletContext().getInitParameter("navbar")); %></p>
+            <p><% out.print(getServletContext().getInitParameter("header")); %></p>
             
             <form name="LogoutForm" method="post" action="Logout">
                 <input name="action" type="submit" value="Logout">
@@ -40,8 +40,6 @@
             ExpenseManager em = new ExpenseManager();
             List<Expense> result = (ArrayList) request.getAttribute("results");
         %>
-        
-        <h1 align="center">Hello, <% out.print(account.getNickname()); %></h1>
         
         <table border="1" align="center" id="compute-table">
             <tr>
