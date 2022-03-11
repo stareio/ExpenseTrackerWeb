@@ -92,14 +92,18 @@ public class ExpenseController extends HttpServlet {
                     System.out.println("date: " + date);
                     System.out.println("descr: " + descr);
                     
-                    if (action.equals("Add Record") || action.equals("Update Record")) {
-                        inex = request.getParameter("inex");
-                        amount = request.getParameter("amount");
-                        category = request.getParameter("category");
+                    if (action.equals("Add Record") || action.equals("Update Record")
+                            || action.equals("Update")) {
                         
                         // reference values for update record
                         updateDate = (String) session.getAttribute("updateDate");
                         updateDescr = (String) session.getAttribute("updateDescr");
+                        
+                        if (!action.equals("Update")) {
+                            inex = request.getParameter("inex");
+                            amount = request.getParameter("amount");
+                            category = request.getParameter("category");
+                        }
                     }
                 }
 
@@ -114,7 +118,7 @@ public class ExpenseController extends HttpServlet {
                 // retrieve the list of records 
                 else {
                     List records = em.getExpenses(conn, action, date, descr, inex, amount, category,
-                                                    updateDate, updateDescr);
+                                                    updateDate, updateDescr);                    
 
                     switch (action) {
                         case "Add an Entry":

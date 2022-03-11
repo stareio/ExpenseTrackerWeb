@@ -36,6 +36,7 @@ public class ExpenseManager {
             
             if (!action.equals("Login")) {
                 
+                // modify the database
                 switch (action) {
                     case "Delete":
                         {
@@ -62,30 +63,18 @@ public class ExpenseManager {
                             System.out.println("record added!");
                             break;
                         }
-                    case "Update":
-                        {
-                            query = "SELECT FROM expense WHERE date = ? AND description = ?";
-                            PreparedStatement ps = conn.prepareStatement(query);
-                            
-                            ps.setString(1, date);
-                            ps.setString(2, descr);
-                            ps.executeUpdate();
-                            
-                            System.out.println("record retrieved for updating!");
-                            break;
-                        }
                     case "Update Record":
                         {
                             query = "UPDATE expense SET date=?, income_expense=?, " +
                                     "amount=?, category=?, description=? " +
                                     "WHERE (date=? AND description=?)";
                             PreparedStatement ps = conn.prepareStatement(query);
-                            
+
                             // reformat the input date
                             SimpleDateFormat sdfParse = new SimpleDateFormat("MM/dd/yyyy");
                             SimpleDateFormat sdfFormat = new SimpleDateFormat("yyyy-MM-dd");
                             Date parsedDate = sdfParse.parse(date);
-                            
+
                             ps.setString(1, sdfFormat.format(parsedDate));
                             ps.setString(2, inex);
                             ps.setString(3, amount);
@@ -94,7 +83,7 @@ public class ExpenseManager {
                             ps.setString(6, updateDate);
                             ps.setString(7, updateDescr);
                             ps.executeUpdate();
-                            
+
                             System.out.println("record updated!");
                             break;
                         }
@@ -103,20 +92,53 @@ public class ExpenseManager {
                 }
             }
             
-            query = "SELECT * FROM expense ORDER BY date";
-            PreparedStatement ps = conn.prepareStatement(query);
-            
-            ResultSet rs = ps.executeQuery();
-            
-            while(rs.next()) {
-                Expense e = new Expense();
-                
-                e.setDate(rs.getDate("date"));
-                e.setInex(rs.getString("income_expense"));
-                e.setAmount(rs.getString("amount"));
-                e.setCategory(rs.getString("category"));
-                e.setDescription(rs.getString("description"));
-                list.add(e);
+            // retrieve the list of expenses
+            switch (action) {
+                case "Update":
+                    {
+                        query = "SELECT * FROM expense WHERE date = ? AND description = ?";
+                        PreparedStatement ps = conn.prepareStatement(query);                        
+                        
+                        ps.setString(1, updateDate);
+                        ps.setString(2, updateDescr);
+                        ResultSet rs = ps.executeQuery();
+                        
+                        System.out.println("rs is: " + rs);
+
+                        while(rs.next()) {
+                            System.out.println("in the while loop...");
+                            Expense e = new Expense();
+
+                            e.setDate(rs.getDate("date"));
+                            e.setInex(rs.getString("income_expense"));
+                            e.setAmount(rs.getString("amount"));
+                            e.setCategory(rs.getString("category"));
+                            e.setDescription(rs.getString("description"));
+                            list.add(e);
+                        }
+
+                        System.out.println("record retrieved for updating!");
+                        break;
+                    }
+                default:
+                    {
+                        query = "SELECT * FROM expense ORDER BY date";
+                        PreparedStatement ps = conn.prepareStatement(query);
+
+                        ResultSet rs = ps.executeQuery();
+
+                        while(rs.next()) {
+                            Expense e = new Expense();
+
+                            e.setDate(rs.getDate("date"));
+                            e.setInex(rs.getString("income_expense"));
+                            e.setAmount(rs.getString("amount"));
+                            e.setCategory(rs.getString("category"));
+                            e.setDescription(rs.getString("description"));
+                            list.add(e);
+                        }
+                        break;
+                    }
             }
         }
         
