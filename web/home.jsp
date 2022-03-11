@@ -15,10 +15,6 @@
     <body>
         <header>
             <p><% out.print(getServletContext().getInitParameter("header")); %></p>
-            
-            <form name="LogoutForm" method="post" action="Logout">
-                <input name="action" type="submit" value="Logout">
-            </form>
         </header>
         
         <%

@@ -16,12 +16,6 @@
             <p><% out.print(getServletContext().getInitParameter("header")); %></p>
         </header>
         
-        <%  
-            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");    // HTTP 1.1
-            response.setHeader("Pragma", "no-cache");    // HTTP 1.0
-            response.setHeader("Expires", "0");    //prevents caching at the proxy server
-        %>
-        
         <h1>Incorrect Username/Password</h1>
         
         <p>Login failed! Please try again :)</p>

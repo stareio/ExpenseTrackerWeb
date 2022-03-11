@@ -51,14 +51,6 @@
         <param-name>footer</param-name>
         <param-value>University of Santo Tomas | SY 2021-2022</param-value>
     </context-param>
-    <servlet>
-        <servlet-name>LogoutServlet</servlet-name>
-        <servlet-class>controller.LogoutServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>LogoutServlet</servlet-name>
-        <url-pattern>/Logout</url-pattern>
-    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

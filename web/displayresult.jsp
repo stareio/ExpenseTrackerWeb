@@ -18,25 +18,10 @@
     <body>
         <header>
             <p><% out.print(getServletContext().getInitParameter("header")); %></p>
-            
-            <form name="LogoutForm" method="post" action="Logout">
-                <input name="action" type="submit" value="Logout">
-            </form>
         </header>
         
         <%           
-            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");    // HTTP 1.1
-            response.setHeader("Pragma", "no-cache");    // HTTP 1.0
-            response.setHeader("Expires", "0");    //prevents caching at the proxy server
-            
             User account = (User) session.getAttribute("account");  
-            
-            // check if user logged out
-            if(account == null) {
-                response.sendRedirect(request.getContextPath() + "/index.jsp");
-
-            }
-            
             ExpenseManager em = new ExpenseManager();
             List<Expense> result = (ArrayList) request.getAttribute("results");
         %>

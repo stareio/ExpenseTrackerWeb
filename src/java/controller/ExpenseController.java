@@ -56,14 +56,14 @@ public class ExpenseController extends HttpServlet {
         // check if connection is null
         if (conn != null) {
             
-            HttpSession session = request.getSession(false);
+            HttpSession session = request.getSession();
             String action = request.getParameter("action");
             
             System.out.println("");
             System.out.println("session: " + session);
             System.out.println("action: " + action);
 
-            // check if user is logging in
+            // check if user is trying to log in
             if (action.equals("Login")) {
                 
                 String loginName = request.getParameter("loginUsername");    // inputs of user in login form
@@ -76,13 +76,7 @@ public class ExpenseController extends HttpServlet {
                 System.out.println("user: " + user);
             }
             
-            else if (session.getAttribute("account") == null) {
-                response.sendRedirect("index.jsp");
-            }
-            
-            // ======================================================
-            
-            // check if user is already logged in
+            // check if user is logged in
             if (session.getAttribute("account") != null) {
                 
                 String date = "";

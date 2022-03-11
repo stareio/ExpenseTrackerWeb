@@ -18,17 +18,8 @@
         </header>
         
         <%
-            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");    // HTTP 1.1
-            response.setHeader("Pragma", "no-cache");    // HTTP 1.0
-            response.setHeader("Expires", "0");    //prevents caching at the proxy server
-
             // retrieve the user's account
             User account = (User) session.getAttribute("account");
-            
-            // check if user is logged in
-            if(account == null) {
-                response.sendRedirect("errorLogin.jsp");
-            }
         %>
         
         <h1>Hello, <% out.print(account.getNickname()); %>! Let's <u>update</u> a record!</h1>
