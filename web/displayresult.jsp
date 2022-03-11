@@ -29,6 +29,8 @@
         %>
         
         <div class="container" id="displayresult-container">
+            <h1>Hello, <% out.print(account.getNickname()); %>!</h1>
+            
             <table id="compute-table" class="table table-sm">
             <tr>
                 <th>Income</th>
