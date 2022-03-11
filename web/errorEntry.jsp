@@ -22,6 +22,10 @@
         
         <p>Please input a valid entry</p>
         
+        <form name="ReturnForm" method="post" action="Expenses">
+            <input name="action" type="submit" id="submit-btn" value="Return"/>
+        </form>
+        
         <footer>
             <p><% out.print(getServletContext().getInitParameter("footer")); %></p>
         </footer>

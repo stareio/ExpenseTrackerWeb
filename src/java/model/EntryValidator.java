@@ -5,11 +5,10 @@
  */
 package model;
 
-import java.text.ParseException;
+import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.time.*;
-import java.util.*;
-import javax.swing.JOptionPane;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -23,21 +22,20 @@ public class EntryValidator {
         try {
             // check the length
             if (str.length() == 10){
+                String[] split = str.split("/");
                 
-                // reformat the input date
-                SimpleDateFormat sdfParse = new SimpleDateFormat("MM/dd/yyyy");
-                SimpleDateFormat sdfFormat = new SimpleDateFormat("yyyy-MM-dd");
-                Date parsedDate = sdfParse.parse(str);
+                int year = Integer.parseInt(split[0]);
+                int month = Integer.parseInt(split[1]);
+                int day = Integer.parseInt(split[2]);
 
                 // throws a DTE if an invalid date value is passed to it
-                LocalDate ld = parsedDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-
+                LocalDate ld = LocalDate.of(year, month, day);
+                
+                System.out.println("date1: " + str);
+                System.out.println("date2:" + ld);
+                
                 return true;
             }
-        }
-        
-        catch (ParseException pe) {
-            pe.printStackTrace();
         }
         
         catch (DateTimeException dte) {
@@ -61,3 +59,6 @@ public class EntryValidator {
         return false;
     }
 }
+
+// reference:
+// date splitting: https://stackoverflow.com/questions/36290467/how-to-get-day-month-year-from-string-date

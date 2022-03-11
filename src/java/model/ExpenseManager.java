@@ -33,7 +33,6 @@ public class ExpenseManager {
         
         try {
             String query = "";
-            System.out.println("action is: " + action);
             
             if (!action.equals("Login")) {
                 
@@ -137,7 +136,7 @@ public class ExpenseManager {
             }
         }
         
-        System.out.println("income: " + expenses);
+        System.out.println("expenses: " + expenses);
         
         return printAmount(expenses);
     }
@@ -145,6 +144,8 @@ public class ExpenseManager {
     // computes & displays the remaining balance (income - expenses)
     public String computeBalance() {
         Double balance = income - expenses;
+        
+        System.out.println("balance: " + balance);
         
         return printAmount(balance);
     }

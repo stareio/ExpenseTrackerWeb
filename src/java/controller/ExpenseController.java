@@ -22,10 +22,9 @@ import model.UserManager;
  */
 public class ExpenseController extends HttpServlet {
     
-    HttpSession session;
     ExpenseManager em;
-    UserManager um;
     EntryValidator ev;
+    UserManager um;
     User user;
     String updateDate;
     String updateDescr;
@@ -55,21 +54,29 @@ public class ExpenseController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         
-        session = request.getSession();
-        
         // check if connection is null
         if (conn != null) {
-            String loginName = request.getParameter("loginUsername");    // inputs of user in login form
-            String loginPass = request.getParameter("loginPassword");
+            
+            HttpSession session = request.getSession(false);
             String action = request.getParameter("action");
             
+            System.out.println("");
+            System.out.println("session: " + session);
+            System.out.println("action: " + action);
+
             // check if user is logging in
             if (action.equals("Login")) {
+                String loginName = request.getParameter("loginUsername");    // inputs of user in login form
+                String loginPass = request.getParameter("loginPassword");
                 user = um.loginUser(loginName, loginPass, conn);
+                
+                session = request.getSession();
+                session.setAttribute("account", user);
+                System.out.println("user: " + user);
             }
             
-            // check if user successfully logged in
-            if (user != null) {
+            // check if user is already logged in
+            if (session != null && session.getAttribute("account") != null) {
                 
                 String date = "";
                 String descr = "";
@@ -77,12 +84,12 @@ public class ExpenseController extends HttpServlet {
                 String amount = "";
                 String category = "";
                 
-                System.out.println("");
-                System.out.println("action: " + action);
-                
                 if (!action.equals("Login")) {
                     date = request.getParameter("date");
                     descr = request.getParameter("descr");
+                    
+                    System.out.println("date: " + date);
+                    System.out.println("descr: " + descr);
                     
                     if (action.equals("Add Record") || action.equals("Update Record")) {
                         inex = request.getParameter("inex");
@@ -96,19 +103,11 @@ public class ExpenseController extends HttpServlet {
                 }
 
             // ==========================================================
-                System.out.println("date: " + date);
-                System.out.println("descr: " + descr);
-                System.out.println("date: " + date);
-                System.out.println("inex: " + inex);
-                System.out.println("amount: " + amount);
-                System.out.println("category: " + category);
-                System.out.println("updateDate: " + updateDate);
-                System.out.println("updateDescr: " + updateDescr);
-                
+
                 // for adding/updating an entry, check date & amount values
                 if ( (action.equals("Add Record") || action.equals("Update Record"))
-                        && (!ev.checkDate(date) || !ev.checkAmount(amount))) {
-                    response.sendRedirect("error/errorEntry.jsp");
+                        && (ev.checkDate(date)==false || ev.checkAmount(amount)==false)) {
+                    response.sendRedirect("errorEntry.jsp");
                 }
                 
                 // retrieve the list of records 
@@ -116,9 +115,6 @@ public class ExpenseController extends HttpServlet {
                     List records = em.getExpenses(conn, action, date, descr,
                                                 inex, amount, category,
                                                 updateDate, updateDescr);
-                
-                    System.out.println("user: " + user);
-                    session.setAttribute("account", user);
 
                     switch (action) {
                         case "Add an Entry":
@@ -140,12 +136,12 @@ public class ExpenseController extends HttpServlet {
             }
 
             else {
-                response.sendRedirect("error/errorLogin.jsp");
+                response.sendRedirect("login.jsp");
             }
         }
         
         else {
-            response.sendRedirect("error/errorConn.jsp");
+            response.sendRedirect("errorConn.jsp");
         }
  
     }
@@ -190,3 +186,6 @@ public class ExpenseController extends HttpServlet {
     }// </editor-fold>
 
 }
+
+// references:
+// login: https://www.youtube.com/watch?v=cYc3FjhMMzI

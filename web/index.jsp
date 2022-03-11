@@ -16,6 +16,12 @@
             <p><% out.print(getServletContext().getInitParameter("navbar")); %></p>
         </header>
         
+        <%  
+            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");    // HTTP 1.1
+            response.setHeader("Pragma", "no-cache");    // HTTP 1.0
+            response.setHeader("Expires", "0");    //prevents caching at the proxy server
+        %>
+        
         <h1>Login</h1>
         
         <form name="LoginForm" method="post" action="Expenses">
