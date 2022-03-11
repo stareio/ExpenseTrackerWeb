@@ -18,8 +18,8 @@ and open the template in the editor.
     max-width: 60%;
 }
 
-#compute-table td:hover, #compute-table th:hover {
-    background-color: rgba(0,0,0,.075);
+#compute-table td:hover, #compute-table th:hover, #update-table td:hover {
+        background-color: rgba(0,0,0,.075);
 }
 
 #records-table td:nth-child(5) {
