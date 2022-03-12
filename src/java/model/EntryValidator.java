@@ -24,9 +24,9 @@ public class EntryValidator {
             if (str.length() == 10){
                 String[] split = str.split("/");
                 
-                int year = Integer.parseInt(split[0]);
-                int month = Integer.parseInt(split[1]);
-                int day = Integer.parseInt(split[2]);
+                int month = Integer.parseInt(split[0]);
+                int day = Integer.parseInt(split[1]);
+                int year = Integer.parseInt(split[2]);
 
                 // throws a DTE if an invalid date value is passed to it
                 LocalDate ld = LocalDate.of(year, month, day);
@@ -57,6 +57,10 @@ public class EntryValidator {
         }
         
         return false;
+    }
+    
+    public boolean checkLength(String str) {
+        return str.length() < 40;
     }
 }
 
