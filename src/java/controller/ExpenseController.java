@@ -114,9 +114,8 @@ public class ExpenseController extends HttpServlet {
 
                 // for adding/updating an entry, check date & amount values
                 if ( (action.equals("Add Record") || action.equals("Update Record"))
-                        && (ev.checkDate(date)==false || ev.checkAmount(amount)==false)
-                                || ev.checkCategory(category)==false || ev.checkDescr(descr)==false) {
-                    
+                        && (ev.checkDate(date)==false && ev.checkAmount(amount)
+                                && ev.checkCategory(category) && ev.checkDescr(category))==false) {
                     response.sendRedirect("errorEntry.jsp");
                 }
                 
