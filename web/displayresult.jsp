@@ -29,10 +29,10 @@
             List<Expense> result = (ArrayList) request.getAttribute("results");
         %>
         
-        <div class="container-fluid text-center" id="displayresult-container">
+        <div class="container text-center" id="displayresult-container">
             <h1>Hello, <% out.print(account.getNickname()); %>!</h1>
             
-            <table id="compute-table" class="table table-sm">
+            <table id="compute-table" class="table table-borderless table-sm">
             <tr>
                 <th>Income</th>
                 <th>Expenses</th>
@@ -105,3 +105,8 @@ if ( window.history.replaceState ) {
   window.history.replaceState( null, null, window.location.href );
 }
 </script>
+
+<!--
+references:
+JS to prevent resubmission of form: https://stackoverflow.com/questions/6320113/how-to-prevent-form-resubmission-when-page-is-refreshed-f5-ctrlr
+-->
