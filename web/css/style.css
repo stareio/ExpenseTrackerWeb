@@ -8,24 +8,38 @@ and open the template in the editor.
     Author     : star
 */
 
+body {
+    height: 100%
+}
+
+.input-group-text {
+    width: 12%;
+}
+
 #displayresult-container {
-    min-width: 50%;
-    max-width: 70%;
+    min-width: 70%;
+    max-width: 90%;
+}
+
+#displayresult-container td:last-child {
+    align-items: center;
+    /*padding: 10px;*/
 }
 
 #compute-table {
-    min-width: 50%;
-    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 10%;
+    max-width: 50%;
 }
 
 #compute-table td:hover, #update-table td:hover {
     background-color: rgba(0,0,0,.075);
 }
 
-#records-table td:nth-child(5) {
-    width: 100%;
-}
-
 #update, #delete {
     min-width: 75px;
 }
+
+
+
