@@ -58,6 +58,9 @@ public class ExpenseController extends HttpServlet {
             
             HttpSession session = request.getSession();
             String action = request.getParameter("action");
+            if (action == null) {
+                action = "";
+            }
             
             System.out.println("");
             System.out.println("session: " + session);
@@ -111,7 +114,9 @@ public class ExpenseController extends HttpServlet {
 
                 // for adding/updating an entry, check date & amount values
                 if ( (action.equals("Add Record") || action.equals("Update Record"))
-                        && (ev.checkDate(date)==false || ev.checkAmount(amount)==false)) {
+                        && (ev.checkDate(date)==false || ev.checkAmount(amount)==false)
+                                || ev.checkCategory(category)==false || ev.checkDescr(descr)==false) {
+                    
                     response.sendRedirect("errorEntry.jsp");
                 }
                 
