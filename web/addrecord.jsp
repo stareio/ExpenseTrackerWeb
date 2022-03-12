@@ -25,7 +25,7 @@
         
         <h1>Hello, <% out.print(account.getNickname()); %>! Let's <u>add</u> a record!</h1>
         
-        <form name="AddRecordForm" method="post" id="add" action="Expenses">
+        <form name="AddRecordForm" method="post" id="add" action="Expenses" autocomplete="off">
             
             <p>Date</p>
             <input name="date" type="text" size="25" placeholder="ex: 01/23/2000" required/>

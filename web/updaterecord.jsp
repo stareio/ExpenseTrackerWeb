@@ -57,7 +57,7 @@
                 %>
             </table>
         
-            <form name="UpdateRecordForm" method="post" id="update" action="Expenses">
+            <form name="UpdateRecordForm" method="post" id="update" action="Expenses" autocomplete="off">
 
                 <p>Date</p>
                 <input name="date" type="text" size="25" placeholder="ex: 01/23/2000" required/>
