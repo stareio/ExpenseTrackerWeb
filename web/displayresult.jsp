@@ -14,7 +14,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>List of Expenses</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+                integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link type="text/css" href="css/style.css" rel="stylesheet">
     </head>
     <body>
@@ -28,7 +29,7 @@
             List<Expense> result = (ArrayList) request.getAttribute("results");
         %>
         
-        <div class="container" id="displayresult-container">
+        <div class="container-fluid text-center" id="displayresult-container">
             <h1>Hello, <% out.print(account.getNickname()); %>!</h1>
             
             <table id="compute-table" class="table table-sm">
@@ -46,7 +47,7 @@
  
         </table>
         
-        <table id="records-table" class="table table-sm table-striped table-hover">    
+        <table id="records-table" class="table table-sm table-striped table-hover align-middle">    
             <tr>
                 <th>Date</th>
                 <th>Income/Expense</th>
@@ -98,3 +99,9 @@
         </footer>
     </body>
 </html>
+
+<script>
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>
