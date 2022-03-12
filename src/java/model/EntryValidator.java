@@ -5,10 +5,7 @@
  */
 package model;
 
-import java.text.ParsePosition;
-import java.text.SimpleDateFormat;
 import java.time.*;
-import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -31,8 +28,9 @@ public class EntryValidator {
                 // throws a DTE if an invalid date value is passed to it
                 LocalDate ld = LocalDate.of(year, month, day);
                 
+                System.out.println("checkDate is true!");
                 System.out.println("date1: " + str);
-                System.out.println("date2:" + ld);
+                System.out.println("date2: " + ld);
                 
                 return true;
             }
@@ -48,8 +46,11 @@ public class EntryValidator {
     public boolean checkAmount(String amount) {
         try {
             double d = Double.valueOf(amount);
-            
-            return true;
+
+            if (d <= 20 && d > 0) {
+                System.out.println("checkAmount is true!");
+                return true;
+            }
         }
         
         catch (NumberFormatException nfe) {
