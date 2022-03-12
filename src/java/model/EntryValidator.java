@@ -59,8 +59,12 @@ public class EntryValidator {
         return false;
     }
     
-    public boolean checkLength(String str) {
-        return str.length() < 40;
+    public boolean checkCategory(String str) {
+        return str.length() <= 15;
+    }
+    
+    public boolean checkDescr(String str) {
+        return str.length() <= 20;
     }
 }
 
