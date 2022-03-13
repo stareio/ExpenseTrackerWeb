@@ -42,9 +42,11 @@ public class ExpenseManager {
                         {
                             query = "DELETE FROM expense WHERE date = ? AND description = ?";
                             PreparedStatement ps = conn.prepareStatement(query);
+                            
                             ps.setString(1, date);
                             ps.setString(2, descr);
                             ps.executeUpdate();
+                            
                             System.out.println("record deleted!");
                             break;
                         }
@@ -193,12 +195,17 @@ public class ExpenseManager {
     
     // returns the amount as either a whole number or not
     public String printAmount(double amount) {
-        String strAmount = amount + "";
+        String strAmount = "";
         
         // removes decimal places if whole number
         if (amount - (int)amount == 0) {
             int i = (int) amount;
             strAmount = Integer.toString(i);
+        }
+        
+        // show only 2 decimal places
+        else {
+            strAmount = String.format("%.02f", amount);
         }
         
         return strAmount;
