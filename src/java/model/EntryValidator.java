@@ -45,11 +45,17 @@ public class EntryValidator {
     
     public boolean checkAmount(String amount) {
         try {
-            double d = Double.valueOf(amount);
 
-            if (d <= 20 && d > 0) {
-                System.out.println("checkAmount is true!");
-                return true;
+            if (amount.length() <= 20 && amount.length() >= 1) {
+                
+                // throws NFE if invalid
+                double d = Double.valueOf(amount);
+
+                // check if negative value or 0
+                if (d > 0) {
+                    System.out.println("checkAmount is true!");
+                    return true;
+                }
             }
         }
         
@@ -57,6 +63,7 @@ public class EntryValidator {
             nfe.printStackTrace();
         }
         
+        System.out.println("checkAmount is false :(");
         return false;
     }
     
