@@ -8,8 +8,19 @@ and open the template in the editor.
     Author     : star
 */
 
-body {
+/*body {
     height: 100%
+}*/
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;   /* Height of the footer */
+}
+
+#login-body {
+    /*background-image: url("");*/
 }
 
 #displayresult-container {
