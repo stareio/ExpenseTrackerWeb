@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Login Page</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
                 integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -18,8 +18,8 @@
     <body id="login-body">
         <header class="py-3 mb-3 border-bottom bg-light">
             <div class="container">
-                <div class="d-flex justify-content-around align-items-center mb-lg-0 me-lg-auto text-dark text-decoration-none">
-                    <i class="bi bi-piggy-bank mr" style="font-size: 25px" alt="Logo"></i>
+                <div class="d-flex justify-content-center align-items-center mb-lg-0 me-lg-auto text-dark text-decoration-none">
+                    <i class="bi bi-piggy-bank me-2" style="font-size: 25px" alt="Logo"></i>
                     <span class="d-flex align-items-center mb-0 mb-lg-0">
                         <% out.print(getServletContext().getInitParameter("header")); %>
                     </span>
