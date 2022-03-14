@@ -6,7 +6,8 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<footer class="footer text-center py-3 border-top bg-light text-muted" style="height: 4em; font-size: 14px">
+<footer class="py-3 flex-shrink-0 border-top bg-light text-muted"
+        style="height: 4em; font-size: 14px">
     <div class="container">
         <span>
             <% out.print(getServletContext().getInitParameter("footer")); %>
