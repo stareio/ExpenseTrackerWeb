@@ -14,9 +14,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>List of Expenses</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-                integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link type="text/css" href="css/style.css" rel="stylesheet">
+        <%@include file='css.jsp'%>
     </head>
     <body>
         <%@include file='header.jsp'%>
@@ -88,7 +86,7 @@
             </table>
 
             <form name="AddRecord" method="post" action="Expenses">
-                <input name="action" type="submit" value="Add an Entry"/>
+                <input name="action" type="submit" value="Add an Entry" class="btn btn-primary" style="font-size: 15px;"/>
             </form>
         </div>
         
