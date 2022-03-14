@@ -16,7 +16,7 @@
         <title>List of Expenses</title>
         <%@include file='css.jsp'%>
     </head>
-    <body class="d-flex flex-column">
+    <body class="d-flex flex-column h-100">
         <%@include file='header.jsp'%>
         
         <main>

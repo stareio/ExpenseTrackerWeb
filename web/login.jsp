@@ -12,7 +12,7 @@
         <title>Login Page</title>
         <%@include file='css.jsp'%>
     </head>
-    <body>
+    <body class="d-flex flex-column h-100">
         <%@include file='header.jsp'%>
                     
         <main>
