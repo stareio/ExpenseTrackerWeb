@@ -27,7 +27,7 @@
             </div>
         </header>
                     
-        <article class="container-fluid">
+        <main>
             <div class="row d-flex justify-content-center">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-6">
                     <div class="card shadow-2-strong text-black bg-light" style="border-radius: 1rem;">
@@ -55,18 +55,20 @@
                                 <input name="loginPassword" type="password" class="form-control"/>
                             </div>
 
-                            <input name="action" type="submit" id="submit-btn" value="Login"/>
+                            <input name="action" type="submit" value="Login" class="btn btn-primary" style="font-size: 14px;"/>
 
                         </form>
                     </div>
                 </div>
             </div>
-        </article>
+        </main>
         
-        <footer class="text-center p-3 border-top bg-light">
-            <span>
-                <% out.print(getServletContext().getInitParameter("footer")); %>
-            </span>
+        <footer class="footer text-center py-3 border-top bg-light text-muted" style="height: 4em; font-size: 14px">
+            <div class="container">
+                <span>
+                    <% out.print(getServletContext().getInitParameter("footer")); %>
+                </span>
+            </div>
         </footer>
     </body>
 </html>

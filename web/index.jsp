@@ -15,7 +15,7 @@
                 integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link type="text/css" href="css/style.css" rel="stylesheet">
     </head>
-    <body>
+    <body class="d-flex flex-column h-100">
         <header class="py-3 mb-3 border-bottom bg-light">
             <div class="container">
                 <div class="d-flex justify-content-center align-items-center mb-lg-0 me-lg-auto text-dark text-decoration-none">
@@ -27,7 +27,7 @@
             </div>
         </header>
         
-        <article class="container-fluid">    
+        <main>    
             
             <!--image of spinning coin-->
             
@@ -48,18 +48,20 @@
                                 <input name="loginPassword" type="password" class="form-control"/>
                             </div>
 
-                            <input name="action" type="submit" id="submit-btn" value="Login"/>
+                            <input name="action" type="submit" value="Login" class="btn btn-primary" style="font-size: 14px;"/>
 
                         </form>
                     </div>
                 </div>
             </div>
-        </article>
+        </main>
                     
-        <footer class="text-center p-3 border-top bg-light">
-            <span>
-                <% out.print(getServletContext().getInitParameter("footer")); %>
-            </span>
+        <footer class="footer text-center py-3 border-top bg-light text-muted" style="height: 4em; font-size: 14px">
+            <div class="container">
+                <span>
+                    <% out.print(getServletContext().getInitParameter("footer")); %>
+                </span>
+            </div>
         </footer>
     </body>
 </html>
