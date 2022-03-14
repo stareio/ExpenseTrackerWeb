@@ -15,7 +15,7 @@
     <body class="d-flex flex-column h-100">
         <%@include file='header.jsp'%>
                     
-        <main>
+        <div>
             <div class="row d-flex justify-content-center">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-6">
                     <div class="card shadow-2-strong text-black bg-light" style="border-radius: 1rem;">
@@ -49,7 +49,7 @@
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
         
         <%@include file='footer.jsp'%>
     </body>
