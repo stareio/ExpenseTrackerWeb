@@ -15,15 +15,17 @@
     <body>
         <%@include file='header.jsp'%>
         
-        <h1>Invalid Entry</h1>
-        
-        <!--image-->
-        
-        <p>Please input a valid entry</p>
-        
-        <form name="ReturnForm" method="post" action="Expenses">
-            <input name="action" type="submit" id="submit-btn" value="Return"/>
-        </form>
+        <main>
+            <h1>Invalid Entry</h1>
+
+            <!--image-->
+
+            <p>Please input a valid entry</p>
+
+            <form name="ReturnForm" method="post" action="Expenses">
+                <input name="action" type="submit" id="submit-btn" value="Return"/>
+            </form>
+        </main>
         
         <%@include file='footer.jsp'%>
     </body>

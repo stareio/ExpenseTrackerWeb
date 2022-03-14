@@ -16,80 +16,82 @@
         <title>List of Expenses</title>
         <%@include file='css.jsp'%>
     </head>
-    <body>
+    <body class="d-flex flex-column">
         <%@include file='header.jsp'%>
         
-        <%           
-            User account = (User) session.getAttribute("account");  
-            ExpenseManager em = new ExpenseManager();
-            List<Expense> result = (ArrayList) request.getAttribute("results");
-        %>
-        
-        <div class="container text-center" id="displayresult-container">
-            <h1>Hello, <% out.print(account.getNickname()); %>!</h1>
-            
-            <table id="compute-table" class="table table-borderless table-sm">
-            <tr>
-                <th>Income</th>
-                <th>Expenses</th>
-                <th>Balance</th>
-            </tr>
- 
-            <tr>
-                <td><%= em.computeIncome(result) %></td>
-                <td><%= em.computeExpenses(result) %></td>
-                <td><%= em.computeBalance() %></td>
-            </tr>
- 
-        </table>
-        
-        <table id="records-table" class="table table-sm table-striped table-hover align-middle">    
-            <tr>
-                <th>Date</th>
-                <th>Income/Expense</th>
-                <th>Amount</th>
-                <th>Category</th>
-                <th>Description</th>
-                <th>Action</th>
-            </tr>
-            
-            <%                
-                for (Expense e : result) {
+        <main>
+            <%           
+                User account = (User) session.getAttribute("account");  
+                ExpenseManager em = new ExpenseManager();
+                List<Expense> result = (ArrayList) request.getAttribute("results");
             %>
-                    <tr>
-                        <td><%= em.printDate(e.getDate()) %></td>
-                        <td><%= e.getInex() %></td>
-                        <td><%= em.printAmount(e.getAmount()) %></td>
-                        <td><%= e.getCategory() %></td>
-                        <td><%= e.getDescription() %></td>
-                        <td>
-                            <div class="d-grid gap-2 d-md-flex">
-                                <form name="UpdateButton" method="post" action="Expenses" >
-                                    <input name="action" type="submit" value="Update" id="update" class="btn btn-outline-primary btn-sm">                 
-                                    <!--references for updating the record-->
-                                    <input name="updateDate" type="hidden" value="<%= e.getDate() %>"/>
-                                    <input name="updateDescr" type="hidden" value="<%= e.getDescription() %>"/>
-                                </form>
 
-                                <form name="DeleteButton" method="post" action="Expenses">
-                                    <input name="action" type="submit" value="Delete" id="delete" class="btn btn-outline-danger btn-sm">
-                                    <input name="date" type="hidden" value="<%=e.getDate()%>">
-                                    <input name="descr" type="hidden" value="<%=e.getDescription()%>">
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
-            <%
-                }
-            %>
-            
+            <div class="container text-center" id="displayresult-container">
+                <h1>Hello, <% out.print(account.getNickname()); %>!</h1>
+
+                <table id="compute-table" class="table table-borderless table-sm">
+                <tr>
+                    <th>Income</th>
+                    <th>Expenses</th>
+                    <th>Balance</th>
+                </tr>
+
+                <tr>
+                    <td><%= em.computeIncome(result) %></td>
+                    <td><%= em.computeExpenses(result) %></td>
+                    <td><%= em.computeBalance() %></td>
+                </tr>
+
             </table>
 
-            <form name="AddRecord" method="post" action="Expenses">
-                <input name="action" type="submit" value="Add an Entry" class="btn btn-primary" style="font-size: 15px;"/>
-            </form>
-        </div>
-        
+            <table id="records-table" class="table table-sm table-striped table-hover align-middle">    
+                <tr>
+                    <th>Date</th>
+                    <th>Income/Expense</th>
+                    <th>Amount</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                </tr>
+
+                <%                
+                    for (Expense e : result) {
+                %>
+                        <tr>
+                            <td><%= em.printDate(e.getDate()) %></td>
+                            <td><%= e.getInex() %></td>
+                            <td><%= em.printAmount(e.getAmount()) %></td>
+                            <td><%= e.getCategory() %></td>
+                            <td><%= e.getDescription() %></td>
+                            <td>
+                                <div class="d-grid gap-2 d-md-flex">
+                                    <form name="UpdateButton" method="post" action="Expenses" >
+                                        <input name="action" type="submit" value="Update" id="update" class="btn btn-outline-primary btn-sm">                 
+                                        <!--references for updating the record-->
+                                        <input name="updateDate" type="hidden" value="<%= e.getDate() %>"/>
+                                        <input name="updateDescr" type="hidden" value="<%= e.getDescription() %>"/>
+                                    </form>
+
+                                    <form name="DeleteButton" method="post" action="Expenses">
+                                        <input name="action" type="submit" value="Delete" id="delete" class="btn btn-outline-danger btn-sm">
+                                        <input name="date" type="hidden" value="<%=e.getDate()%>">
+                                        <input name="descr" type="hidden" value="<%=e.getDescription()%>">
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                <%
+                    }
+                %>
+
+                </table>
+
+                <form name="AddRecord" method="post" action="Expenses">
+                    <input name="action" type="submit" value="Add an Entry" class="btn btn-primary" style="font-size: 15px;"/>
+                </form>
+            </div>
+        </main>
+                
         <%@include file='footer.jsp'%>
     </body>
 </html>

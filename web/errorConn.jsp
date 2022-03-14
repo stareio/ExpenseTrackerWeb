@@ -15,11 +15,13 @@
     <body>
         <%@include file='header.jsp'%>
         
-        <h1>Connection Error</h1>
-        
-        <p>Sorry for the inconvenience. The web app was unable to
-            establish a database connection :(</p>
-        
+        <main>
+            <h1>Connection Error</h1>
+
+            <p>Sorry for the inconvenience. The web app was unable to
+                establish a database connection :(</p>
+        </main>
+            
         <%@include file='footer.jsp'%>
     </body>
 </html>

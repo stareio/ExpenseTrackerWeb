@@ -15,12 +15,14 @@
     <body>
         <%@include file='header.jsp'%>
         
-        <h1>Page Unavailable</h1>
-        
-        <!--image-->
-        
-        <p>Sorry for the inconvenience, but the page you're looking for isn't available.</p>
-        
+        <main>
+            <h1>Page Unavailable</h1>
+
+            <!--image-->
+
+            <p>Sorry for the inconvenience, but the page you're looking for isn't available.</p>
+        </main>
+            
         <%@include file='footer.jsp'%>
     </body>
 </html>
