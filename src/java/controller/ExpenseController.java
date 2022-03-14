@@ -111,11 +111,11 @@ public class ExpenseController extends HttpServlet {
                 }
 
             // ==========================================================
+                
+                boolean check = true;
 
                 // for adding/updating an entry, check date & amount values
                 if (action.equals("Add Record") || action.equals("Update Record")) {
-                    
-                    boolean check = true;
                     
                     check = ev.checkDate(date) & check;
                     check = ev.checkAmount(amount) & check;
@@ -127,28 +127,30 @@ public class ExpenseController extends HttpServlet {
                     }
                 }
                 
-                // retrieve the list of records 
-                List records = em.getExpenses(conn, action, date, descr, inex, amount, category,
-                                                updateDate, updateDescr);                    
+                if (check) {
+                    
+                    // retrieve the list of records 
+                    List records = em.getExpenses(conn, action, date, descr, inex, amount, category,
+                                                    updateDate, updateDescr);                    
 
-                switch (action) {
-                    case "Add an Entry":
-                        request.getRequestDispatcher("addrecord.jsp").forward(request, response);
-                        break;
-                    case "Update":
-                        session.setAttribute("updateDate", request.getParameter("updateDate"));
-                        session.setAttribute("updateDescr", request.getParameter("updateDescr"));
+                    switch (action) {
+                        case "Add an Entry":
+                            request.getRequestDispatcher("addrecord.jsp").forward(request, response);
+                            break;
+                        case "Update":
+                            session.setAttribute("updateDate", request.getParameter("updateDate"));
+                            session.setAttribute("updateDescr", request.getParameter("updateDescr"));
 
-                        request.setAttribute("results", records);
-                        request.getRequestDispatcher("updaterecord.jsp").forward(request, response);
+                            request.setAttribute("results", records);
+                            request.getRequestDispatcher("updaterecord.jsp").forward(request, response);
 
-                        break;
-                    default:
-                        request.setAttribute("results", records);
-                        request.getRequestDispatcher("displayresult.jsp").forward(request, response);
-                        break;
+                            break;
+                        default:
+                            request.setAttribute("results", records);
+                            request.getRequestDispatcher("displayresult.jsp").forward(request, response);
+                            break;
+                    }
                 }
-                
             }
 
             else {
