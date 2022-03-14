@@ -45,12 +45,12 @@
                         </div>
 
                         <div class="input-group input-group-sm mb-3">
-                            <span class="input-group-text" id="login-field">Username</span>
+                            <span class="input-group-text" style="width: 6em;">Username</span>
                             <input name="loginUsername" type="text" class="form-control"/>
                         </div>
 
                         <div class="input-group input-group-sm mb-3">
-                            <span class="input-group-text" id="login-field">Password</span>
+                            <span class="input-group-text" style="width: 6em;">Password</span>
                             <input name="loginPassword" type="password" class="form-control"/>
                         </div>
 
