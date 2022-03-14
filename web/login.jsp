@@ -32,7 +32,7 @@
                 <div class="card shadow-2-strong text-black bg-light" style="border-radius: 1rem;">
                     <form name="LoginForm" method="post" action="Expenses" autocomplete="off" class="card-body p-5 text-center">
                         
-                        <h3 class="mb-5">Login</h3>
+                        <h3 class="mb-3">Login</h3>
                         
                         <div class="alert alert-danger d-flex align-items-center" role="alert">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
@@ -62,11 +62,9 @@
         </div>
         
         <footer class="text-center p-3 border-top bg-light">
-            <div class="container">
             <span>
                 <% out.print(getServletContext().getInitParameter("footer")); %>
             </span>
-            </div>
         </footer>
     </body>
 </html>
