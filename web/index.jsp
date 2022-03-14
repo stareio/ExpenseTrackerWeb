@@ -16,16 +16,7 @@
         <link type="text/css" href="css/style.css" rel="stylesheet">
     </head>
     <body class="d-flex flex-column h-100">
-        <header class="py-3 mb-3 border-bottom bg-light">
-            <div class="container">
-                <div class="d-flex justify-content-center align-items-center mb-lg-0 me-lg-auto text-dark text-decoration-none">
-                    <i class="bi bi-piggy-bank me-2" style="font-size: 25px" alt="Logo"></i>
-                    <span class="d-flex align-items-center mb-0 mb-lg-0">
-                        <% out.print(getServletContext().getInitParameter("header")); %>
-                    </span>
-                </div>
-            </div>
-        </header>
+        <%@include file='header.jsp'%>
         
         <main>    
             
@@ -55,14 +46,8 @@
                 </div>
             </div>
         </main>
-                    
-        <footer class="footer text-center py-3 border-top bg-light text-muted" style="height: 4em; font-size: 14px">
-            <div class="container">
-                <span>
-                    <% out.print(getServletContext().getInitParameter("footer")); %>
-                </span>
-            </div>
-        </footer>
+        
+        <%@include file='footer.jsp'%>
     </body>
 </html>
 

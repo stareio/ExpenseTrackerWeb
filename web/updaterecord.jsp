@@ -20,9 +20,7 @@
         <link type="text/css" href="css/style.css" rel="stylesheet">
     </head>
     <body>
-        <header>
-            <p><% out.print(getServletContext().getInitParameter("header")); %></p>
-        </header>
+        <%@include file='header.jsp'%>
         
         <%
             User account = (User) session.getAttribute("account");
@@ -85,8 +83,6 @@
             </form>
         </div>
             
-        <footer>
-            <p><% out.print(getServletContext().getInitParameter("footer")); %></p>
-        </footer>
+        <%@include file='footer.jsp'%>
     </body>
 </html>

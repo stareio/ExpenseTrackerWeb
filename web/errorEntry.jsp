@@ -13,9 +13,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     </head>
     <body>
-        <header>
-            <p><% out.print(getServletContext().getInitParameter("header")); %></p>
-        </header>
+        <%@include file='header.jsp'%>
         
         <h1>Invalid Entry</h1>
         
@@ -27,8 +25,6 @@
             <input name="action" type="submit" id="submit-btn" value="Return"/>
         </form>
         
-        <footer>
-            <p><% out.print(getServletContext().getInitParameter("footer")); %></p>
-        </footer>
+        <%@include file='footer.jsp'%>
     </body>
 </html>
