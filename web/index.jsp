@@ -66,6 +66,6 @@
 <!--
 references:
 header: https://getbootstrap.com/docs/5.0/examples/headers/#
-login template: 
+login template: https://mdbootstrap.com/docs/standard/extended/login/
 gold coin gif: https://tenor.com/view/coins-gold-coins-spin-gif-17512701
 -->
