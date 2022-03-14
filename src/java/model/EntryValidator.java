@@ -38,14 +38,19 @@ public class EntryValidator {
         
         catch (DateTimeException dte) {
             dte.printStackTrace();
-        } 
-
+        }
+        
+        catch (NumberFormatException nfe) {
+            nfe.printStackTrace();
+        }
+        
+        System.out.println("checkDate is false :(");
         return false;
     }
     
     public boolean checkAmount(String amount) {
         try {
-
+            // checks if the amount has 1-20 digits
             if (amount.length() <= 20 && amount.length() >= 1) {
                 
                 // throws NFE if invalid
