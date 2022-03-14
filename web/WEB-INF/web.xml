@@ -44,7 +44,7 @@
     <!--header-->
     <context-param>
         <param-name>header</param-name>
-        <param-value>Sophie's Expense Tracker Web App (Work in progress...)</param-value>
+        <param-value>Sophie's Expense Tracker Web App</param-value>
     </context-param>
     <!--footer-->
     <context-param>
