@@ -15,7 +15,7 @@
     <body class="d-flex flex-column h-100">
         <%@include file='header.jsp'%>
         
-        <main>
+        <div>
             <h1>Invalid Entry</h1>
 
             <!--image-->
@@ -25,7 +25,7 @@
             <form name="ReturnForm" method="post" action="Expenses">
                 <input name="action" type="submit" id="submit-btn" value="Return"/>
             </form>
-        </main>
+        </div>
         
         <%@include file='footer.jsp'%>
     </body>

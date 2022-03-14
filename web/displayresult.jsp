@@ -16,10 +16,10 @@
         <title>List of Expenses</title>
         <%@include file='css.jsp'%>
     </head>
-    <body class="d-flex flex-column h-100">
+    <body class="d-flex flex-column">
         <%@include file='header.jsp'%>
         
-        <main>
+        <div>            
             <%           
                 User account = (User) session.getAttribute("account");  
                 ExpenseManager em = new ExpenseManager();
@@ -90,7 +90,7 @@
                     <input name="action" type="submit" value="Add an Entry" class="btn btn-primary" style="font-size: 15px;"/>
                 </form>
             </div>
-        </main>
+        </div>
                 
         <%@include file='footer.jsp'%>
     </body>

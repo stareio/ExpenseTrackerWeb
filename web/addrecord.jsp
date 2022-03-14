@@ -16,7 +16,7 @@
     <body class="d-flex flex-column h-100">
         <%@include file='header.jsp'%>
         
-        <main>
+        <div>
             <%
                 // retrieve the user's account
                 User account = (User) session.getAttribute("account");
@@ -48,7 +48,7 @@
                     <input name="action" type="submit" id="add-btn" value="Add Record"/>
                 </div>
             </form>
-        </main>
+        </div>
         
         <%@include file='footer.jsp'%>
     </body>

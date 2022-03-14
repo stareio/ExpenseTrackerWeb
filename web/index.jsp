@@ -15,7 +15,7 @@
     <body class="d-flex flex-column h-100">
         <%@include file='header.jsp'%>
         
-        <main>    
+        <div>    
             
             <!--image of spinning coin-->
             
@@ -42,7 +42,7 @@
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
         
         <%@include file='footer.jsp'%>
     </body>

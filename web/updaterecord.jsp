@@ -20,7 +20,7 @@
     <body class="d-flex flex-column h-100">
         <%@include file='header.jsp'%>
         
-        <main>
+        <div>
             <%
                 User account = (User) session.getAttribute("account");
                 ExpenseManager em = new ExpenseManager();
@@ -81,7 +81,7 @@
                     </div>
                 </form>
             </div>
-        </main>
+        </div>
                 
         <%@include file='footer.jsp'%>
     </body>

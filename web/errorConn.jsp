@@ -15,12 +15,12 @@
     <body class="d-flex flex-column h-100">
         <%@include file='header.jsp'%>
         
-        <main>
+        <div>
             <h1>Connection Error</h1>
 
             <p>Sorry for the inconvenience. The web app was unable to
                 establish a database connection :(</p>
-        </main>
+        </div>
             
         <%@include file='footer.jsp'%>
     </body>

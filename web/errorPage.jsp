@@ -15,13 +15,13 @@
     <body class="d-flex flex-column h-100">
         <%@include file='header.jsp'%>
         
-        <main>
+        <div>
             <h1>Page Unavailable</h1>
 
             <!--image-->
 
             <p>Sorry for the inconvenience, but the page you're looking for isn't available.</p>
-        </main>
+        </div>
             
         <%@include file='footer.jsp'%>
     </body>
