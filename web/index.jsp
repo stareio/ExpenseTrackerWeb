@@ -17,7 +17,7 @@
         
         <div>    
             
-            <!--image of spinning coin-->
+            <img src="css/coin_happy.png" alt="happy coin image" class="img-fluid">
             
             <div class="row d-flex justify-content-center">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-6">

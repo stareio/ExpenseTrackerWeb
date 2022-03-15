@@ -26,6 +26,8 @@
                 ExpenseManager em = new ExpenseManager();
                 List<Expense> result = (ArrayList) request.getAttribute("results");
             %>
+            
+            <img src="css/coin_meditate.png" alt="meditating coin image" class="img-fluid">
 
             <div class="container" id="displayresult-container">
                 <h1>Hello, <% out.print(account.getNickname()); %>! Let's <u>update</u> a record!</h1>

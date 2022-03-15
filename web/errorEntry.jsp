@@ -16,9 +16,9 @@
         <%@include file='header.jsp'%>
         
         <div>
+            <img src="css/coin_sad.png" alt="sad coin image" class="img-fluid">
+            
             <h1>Invalid Entry</h1>
-
-            <!--image-->
 
             <p>Please input a valid entry</p>
 
@@ -30,3 +30,8 @@
         <%@include file='footer.jsp'%>
     </body>
 </html>
+
+<!--
+references:
+sad coin image: https://www.shutterstock.com/image-vector/sad-coin-character-wallpaper-free-space-1465036271
+-->

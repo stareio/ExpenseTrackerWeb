@@ -21,6 +21,8 @@
                 // retrieve the user's account
                 User account = (User) session.getAttribute("account");
             %>
+            
+            <img src="css/coin_coinpile.png" alt="pile of coins image" class="img-fluid">
 
             <h1>Hello, <% out.print(account.getNickname()); %>! Let's <u>add</u> a record!</h1>
 

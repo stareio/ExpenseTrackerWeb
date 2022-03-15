@@ -16,6 +16,8 @@
         <%@include file='header.jsp'%>
         
         <div>
+            <img src="css/coin_tired.png" alt="tired coin image" class="img-fluid">
+            
             <h1>Page Unavailable</h1>
 
             <!--image-->
