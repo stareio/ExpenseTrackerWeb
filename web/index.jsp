@@ -17,7 +17,7 @@
         
         <div id="content" class="container-fluid">
             <div class="pt-5 text-center">
-                <img src="css/coin_happy.png" alt="happy coin image" id="img-size">
+                <img src="css/coin_happy.png" id="happy-coin-size" alt="happy coin image">
             </div>
 
             <div class="container-fluid my-100">
