@@ -17,7 +17,7 @@
                 </svg>
             </span>
             
-            <span class="d-flex align-items-center mb-0 mb-lg-0">
+            <span id="small-font" class="d-flex align-items-center mb-0 mb-lg-0">
                 <% out.print(getServletContext().getInitParameter("header")); %>
             </span>
         </div>

@@ -12,12 +12,12 @@
         <title>Login Page</title>
         <%@include file='css.jsp'%>
     </head>
-    <body class="d-flex flex-column h-100">
+    <body id="small-font" class="d-flex flex-column h-100">
         <%@include file='header.jsp'%>
                     
         <div id="content" class="container-fluid">
             <div class="pt-5 text-center">
-                <img src="css/coin_sad.png" id="sad-coin-size" alt="sad coin image" class="pb-4">
+                <img src="css/coin_sad.png" id="sad-coin-size" alt="sad coin image" class="mb-4">
             </div>
             
             <div class="row d-flex justify-content-center">
@@ -25,7 +25,7 @@
                     <div class="card shadow-2-strong text-black bg-light" style="border-radius: 1rem;">
                         <form name="LoginForm" method="post" action="Expenses" autocomplete="off" class="card-body p-5 text-center">
 
-                            <h3 class="mb-4">Login</h3>
+                            <h1 class="mb-4">Login</h1>
 
                             <div class="alert alert-danger d-flex align-items-center" role="alert">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
@@ -38,16 +38,16 @@
                             </div>
 
                             <div class="input-group input-group-sm mb-3">
-                                <span class="input-group-text" style="width: 6em;">Username</span>
-                                <input name="loginUsername" type="text" class="form-control"/>
+                                <span id="input-span" class="input-group-text" style="width: 6em;">Username</span>
+                                <input name="loginUsername" id="small-font" type="text" class="form-control"/>
                             </div>
 
                             <div class="input-group input-group-sm mb-3">
-                                <span class="input-group-text" style="width: 6em;">Password</span>
-                                <input name="loginPassword" type="password" class="form-control"/>
+                                <span id="input-span" class="input-group-text" style="width: 6em;">Password</span>
+                                <input name="loginPassword" id="small-font" type="password" class="form-control"/>
                             </div>
 
-                            <input name="action" type="submit" value="Login" class="btn btn-primary"/>
+                            <input name="action" id="submit-btn" type="submit" value="Login" class="btn btn-primary mt-4"/>
 
                         </form>
                     </div>

@@ -34,7 +34,7 @@
             <div class="container" id="displayresult-container">
                 <h1>Hello, <% out.print(account.getNickname()); %>! Let's <u>update</u> a record!</h1>
 
-                <table id="update-table" class="table table-sm table-striped">
+                <table id="update-table" class="table table-sm table-striped p-2">
                     <tr>
                         <th>Date</th>
                         <th>Income/Expense</th>
@@ -90,3 +90,17 @@
         <%@include file='footer.jsp'%>
     </body>
 </html>
+
+<script>
+    window.onload = function() {
+        if(!window.location.hash) {
+            window.location = window.location + '#loaded';
+            window.location.reload();
+        }
+    }
+</script>
+
+<!--
+reference:
+JS to refresh page once: https://stackoverflow.com/questions/6985507/one-time-page-refresh-after-first-page-load
+-->
