@@ -15,14 +15,19 @@
     <body class="d-flex flex-column h-100">
         <%@include file='header.jsp'%>
         
-        <div>
-            <img src="css/error_conn_edited.png" alt="database connection error image"
-                 class="img-fluid">
+        <div id="content" class="container-fluid">
+            <div class="pt-5 text-center">
+                <img src="css/error_conn_edited.png" id="error-conn" alt="database connection error image" class="mb-2">
+            </div>
             
-            <h1>Connection Error</h1>
+            <div class="row d-flex justify-content-center p-4 text-center">
+                <div id="small-font" class="col-12 col-md-9 col-lg-5 col-xl-6">
+                    <h1 class="mb-2">Connection Error</h1>
 
-            <p>Sorry for the inconvenience. The web app was unable to
-                establish a connection to the database :(</p>
+                    <p>Sorry for the inconvenience. The web app was unable to
+                        establish a connection to the database :(</p>
+                </div>
+            </div>
         </div>
             
         <%@include file='footer.jsp'%>

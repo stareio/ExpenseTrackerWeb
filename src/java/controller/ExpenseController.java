@@ -123,7 +123,7 @@ public class ExpenseController extends HttpServlet {
                     check = ev.checkDescr(category) & check;
                     
                     if (check == false) {
-                        response.sendRedirect("errorEntry.jsp");
+                        response.sendRedirect("errorentry.jsp");
                     }
                 }
                 
@@ -159,7 +159,7 @@ public class ExpenseController extends HttpServlet {
         }
         
         else {
-            response.sendRedirect("errorConn.jsp");
+            response.sendRedirect("errorconn.jsp");
         }
  
     }
