@@ -83,17 +83,27 @@ nav {
         font-size: 4.5vw;
     }
     
-    .small-font, #input-span, input {
+    .small-font, #login-span, #login-input, input {
         font-size: 2.5vw;
     }
     
-    #input-span {
+    #login-span {
         padding-left: 1.5vw;
     }
     
     #submit-btn {
         font-size: 2.65vw;
         width: 6.5em;
+    }
+    
+    #add-btn {
+        font-size: 2.65vw;
+        width: 4em;
+    }
+    
+    #add-entry-btn, #update-entry-btn {
+        font-size: 2.65vw;
+        width: 7em;
     }
     
     #return-btn {
@@ -108,17 +118,27 @@ nav {
         font-size: 4.75vw;
     }
     
-    .small-font, #input-span, input {
+    .small-font, #login-span, #login-input, input {
         font-size: 2.75vw;
     }
     
-    #input-span {
+    #login-span {
         padding-left: 2vw;
     }
     
     #submit-btn {
         font-size: 3.25vw;
         width: 4em;
+    }
+    
+    #add-btn {
+        font-size: 3.1vw;
+        width: 5em;
+    }
+    
+    #add-entry-btn, #update-entry-btn {
+        font-size: 3.1vw;
+        width: 7em;
     }
     
     #return-btn {
@@ -132,26 +152,36 @@ nav {
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 990px) { 
     h1 {
-        font-size: 2.5vw;
+        font-size: 2em;
     }
     
-    .small-font, #input-span, input {
-        font-size: 1.4vw;
+    .small-font, #login-span, #login-input, input {
+        font-size: 1em;
     }
     
-    #input-span {
-        padding-left: .75vw;
+    #login-span {
+        padding-left: .75em;
     }
     
     #submit-btn {
-        font-size: 1.25vw;
-        width: 5.5vw;
+        font-size: 1em;
+        width: 5em;
+    }
+    
+    #add-btn {
+        font-size: 1em;
+        width: 6em;
+    }
+ 
+    #add-entry-btn, #update-entry-btn {
+        font-size: 1.25em;
+        width: 8em;
     }
     
     #return-btn {
-        font-size: 1.45vw;
-        height: 3vw;
-        width: 8vw;
+        font-size: 1.45em;
+        height: 3em;
+        width: 8em;
         padding: 2px;
     }
 }

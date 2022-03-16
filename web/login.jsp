@@ -38,14 +38,14 @@
                                 </div>            
                             </div>
 
-                            <div class="input-group input-group-sm mb-3">
-                                <span id="input-span" class="input-group-text" style="width: 6em;">Username</span>
-                                <input name="loginUsername" type="text" class="form-control small-font"/>
+                            <div class="input-group input-group-sm my-4">
+                                <span id="login-span" class="input-group-text" style="width: 6em;">Username</span>
+                                <input id="login-input" name="loginUsername" type="text" class="form-control small-font"/>
                             </div>
 
-                            <div class="input-group input-group-sm mb-3">
-                                <span id="input-span" class="input-group-text" style="width: 6em;">Password</span>
-                                <input name="loginPassword" type="password" class="form-control small-font"/>
+                            <div class="input-group input-group-sm my-4">
+                                <span id="login-span" class="input-group-text" style="width: 6em;">Password</span>
+                                <input id="login-input" name="loginPassword" type="password" class="form-control small-font"/>
                             </div>
 
                             <input name="action" id="submit-btn" type="submit" value="Login" class="btn btn-primary mt-4"/>

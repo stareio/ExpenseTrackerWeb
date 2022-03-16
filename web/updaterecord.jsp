@@ -102,7 +102,7 @@
                                 </div>
                             </div>
                             
-                            <div class="mb-3">
+                            <div class="mb-5">
                                 <label for="inputDescription" class="form-label ps-1">Description</label>
                                 <input name="descr" type="text" placeholder="ex: Education, Food"
                                        aria-describedby="descriptionHelp" class="form-control form-text-input small-font" required/>
@@ -112,7 +112,7 @@
                             </div>
 
                             <div class="container-fluid my-4 text-center">
-                                <input name="action" type="submit" id="update-btn" value="Update Entry" class="btn btn-primary"/>
+                                <input name="action" type="submit" id="update-entry-btn" value="Update Entry" class="btn btn-primary"/>
                                 <input name="updateDate" type="hidden" value=""/>
                                 <input name="updateDescr" type="hidden" value=""/>
                             </div>

@@ -31,9 +31,9 @@
             </div>
             
             <div class="row d-flex justify-content-center">
-                <div class="col-sm-5">
-                    <div class="card shadow-2-strong text-black bg-light pt-3" style="border-radius: 1rem;">
-                        <h1 class="text-center pb-4">Hello, <% out.print(account.getNickname()); %>!</h1>
+                <div class="col-sm-6">
+                    <div class="card shadow-2-strong text-black bg-light pt-3 px-4" style="border-radius: 1rem;">
+                        <h1 class="text-center py-2 pb-3">Hello, <% out.print(account.getNickname()); %>!</h1>
 
                         <table id="compute-table p-2" class="table table-borderless table">
                         <tr class="text-center">
@@ -101,7 +101,7 @@
              
             <div class="container-fluid mb-4 text-center">
                 <form name="AddEntry" method="post" action="Expenses">
-                    <input name="action" type="submit" value="Add an Entry" class="btn btn-primary"/>
+                    <input name="action" type="submit" value="Add an Entry" id="add-entry-btn" class="btn btn-primary"/>
                 </form>
             </div>
                 
