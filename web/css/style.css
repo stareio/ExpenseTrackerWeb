@@ -72,7 +72,6 @@ nav {
     max-width: 14vmin;   
 }
 
-/*RFS*/
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {  
     #input-card {

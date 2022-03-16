@@ -60,7 +60,7 @@
                 </div>
 
             <div class="row d-flex justify-content-center">
-                <div id="input-card" class="col-md-5">
+                <div id="input-card" class="col-md-6">
                     <div class="card shadow-2-strong text-black bg-light px-4 py-3" style="border-radius: 1rem;">
                         <form name="UpdateEntryForm" method="post" id="update" action="Expenses" autocomplete="off">
 

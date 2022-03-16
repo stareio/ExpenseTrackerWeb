@@ -31,7 +31,7 @@
             </div>
             
             <div class="row d-flex justify-content-center">
-                <div id="input-card" class="col-md-5">
+                <div id="input-card" class="col-md-8">
                     <div class="card shadow-2-strong text-black bg-light px-4 py-3" style="border-radius: 1rem;">
                         <form name="AddEntryForm" method="post" id="add" action="Expenses" autocomplete="off">
 
