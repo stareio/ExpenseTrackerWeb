@@ -13,7 +13,7 @@ body {
 }
 
 nav {
-    text-align: center; 
+    text-align: center;
 }
 
 #content {
@@ -32,13 +32,14 @@ nav {
 }
 
 #coin-pile-size {
-    max-height: 25vmin; 
-    max-width: 25vmin;
+    max-height: 23vmin; 
+    max-width: 23vmin;
 }
 
 #coin-stacks-size {
-    max-height: 18vmin; 
-    max-width: 18vmin;
+    min-width: 8vmin;
+    max-height: 12vmin; 
+    max-width: 12vmin;
 }
 
 #displayresult-container {
@@ -65,9 +66,4 @@ nav {
 #update, #delete {
     min-width: 75px;
 }
-
-/*
-refernces:
-
-*/
 
