@@ -75,11 +75,15 @@ nav {
 /*RFS*/
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {  
+    #input-card {
+        width: 60vw;
+    }
+    
     h1 {
         font-size: 4.5vw;
     }
     
-    #small-font, #input-span, input {
+    .small-font, #input-span, input {
         font-size: 2.5vw;
     }
     
@@ -104,7 +108,7 @@ nav {
         font-size: 4.75vw;
     }
     
-    #small-font, #input-span, input {
+    .small-font, #input-span, input {
         font-size: 2.75vw;
     }
     
@@ -131,7 +135,7 @@ nav {
         font-size: 2.5vw;
     }
     
-    #small-font, #input-span, input {
+    .small-font, #input-span, input {
         font-size: 1.4vw;
     }
     

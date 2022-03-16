@@ -21,7 +21,7 @@
             </div> 
             
             <div class="row d-flex justify-content-center p-4 text-center">
-                <div id="small-font" class="col-12 col-md-9 col-lg-5 col-xl-6">
+                <div class="col-12 col-md-9 col-lg-5 col-xl-6 small-font">
                     <h1 class="mb-2">Invalid Entry</h1>
 
                     <p>Please input a valid entry</p>

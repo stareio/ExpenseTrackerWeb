@@ -17,7 +17,7 @@
         <title>Update Entry</title>
         <%@include file='css.jsp'%>
     </head>
-    <body id="small-font" class="d-flex flex-column h-100">
+    <body class="d-flex flex-column h-100 small-font">
         <%@include file='header.jsp'%>
         
         <div id="content" class="container-fluid"> 
@@ -60,22 +60,22 @@
                 </div>
 
             <div class="row d-flex justify-content-center">
-                <div class="col-md-5">
+                <div id="input-card" class="col-md-5">
                     <div class="card shadow-2-strong text-black bg-light px-4 py-3" style="border-radius: 1rem;">
                         <form name="UpdateEntryForm" method="post" id="update" action="Expenses" autocomplete="off">
 
                             <div class="mb-3">
                                 <label for="inputDate" class="form-label ps-1">Date</label>
-                                <input name="date" id="small-font" type="text" placeholder="ex: 01/23/2000"
-                                       aria-describedby="dateHelp" class="form-control form-text-input" required/>
+                                <input name="date" type="text" placeholder="ex: 01/23/2000"
+                                       aria-describedby="dateHelp" class="form-control form-text-input small-font" required/>
                                 <div id="dateHelp" class="form-text ps-1">
-                                    The date must follow the MM/dd/YYYY format.
+                                    Must follow the MM/DD/YYYY format.
                                 </div>
                             </div>
                             
                             <div class="mb-3">
                                 <label for="inputDate" class="form-label ps-1">Income/Expense</label>
-                                <select name="inex" id="small-font" aria-describedby="inexHelp" class="form-select form-inex-input">
+                                <select name="inex" aria-describedby="inexHelp" class="form-select form-inex-input small-font">
                                     <option value="Income">Income</option>
                                     <option value="Expense">Expense</option>
                                 </select>
@@ -86,8 +86,8 @@
 
                             <div class="mb-3">
                                 <label for="inputAmount" class="form-label ps-1">Amount</label>
-                                <input name="amount" id="small-font" type="text" placeholder="ex: 4500, 256.25"
-                                       aria-describedby="amountHelp" class="form-control form-text-input" required/>
+                                <input name="amount" type="text" placeholder="ex: 4500, 256.25"
+                                       aria-describedby="amountHelp" class="form-control form-text-input small-font" required/>
                                 <div id="amountHelp" class="form-text ps-1">
                                     Must be 1-20 characters long and have 0-2 decimal places.
                                 </div>
@@ -95,8 +95,8 @@
 
                             <div class="mb-3">
                                 <label for="inputCategory" class="form-label ps-1">Category</label>
-                                <input name="category" id="small-font" type="text" placeholder="ex: Education, Food"
-                                       aria-describedby="categoryHelp" class="form-control form-text-input" required/>
+                                <input name="category"type="text" placeholder="ex: Education, Food"
+                                       aria-describedby="categoryHelp" class="form-control form-text-input small-font" required/>
                                 <div id="categoryHelp" class="form-text ps-1">
                                     Must be 1-15 characters long.
                                 </div>
@@ -104,8 +104,8 @@
                             
                             <div class="mb-3">
                                 <label for="inputDescription" class="form-label ps-1">Description</label>
-                                <input name="descr" id="small-font" type="text" placeholder="ex: Education, Food"
-                                       aria-describedby="descriptionHelp" class="form-control form-text-input" required/>
+                                <input name="descr" type="text" placeholder="ex: Education, Food"
+                                       aria-describedby="descriptionHelp" class="form-control form-text-input small-font" required/>
                                 <div id="descriptionHelp" class="form-text ps-1">
                                     Must be 1-20 characters long.
                                 </div>

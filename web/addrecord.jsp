@@ -13,7 +13,7 @@
         <title>Add Entry</title>
         <%@include file='css.jsp'%>
     </head>
-    <body class="d-flex flex-column h-100">
+    <body class="d-flex flex-column h-100 small-font">
         <%@include file='header.jsp'%>
         
         <div>

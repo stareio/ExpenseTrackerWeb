@@ -12,7 +12,7 @@
         <title>Error Connection Page</title>
         <%@include file='css.jsp'%>
     </head>
-    <body class="d-flex flex-column h-100">
+    <body class="d-flex flex-column h-100 small-font">
         <%@include file='header.jsp'%>
         
         <div id="content" class="container-fluid pt-5">
@@ -21,7 +21,7 @@
             </div>
             
             <div class="row d-flex justify-content-center p-4 text-center">
-                <div id="small-font" class="col-12 col-md-9 col-lg-5 col-xl-6">
+                <div class="col-12 col-md-9 col-lg-5 col-xl-6 small-font">
                     <h1 class="mb-2">Connection Error</h1>
 
                     <p>Sorry for the inconvenience. The web app was unable to

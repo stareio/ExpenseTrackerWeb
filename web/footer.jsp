@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <nav class="fixed-bottom py-3 flex-shrink-0 border-top navbar-light bg-light text-muted">
     <div class="container">
-        <span id="small-font">
+        <span class="small-font">
             <% out.print(getServletContext().getInitParameter("footer")); %>
         </span>
     </div>

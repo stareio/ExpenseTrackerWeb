@@ -21,7 +21,7 @@
             </div>
             
             <div class="row d-flex justify-content-center p-4 text-center">
-                <div id="small-font" class="col-12 col-md-9 col-lg-5 col-xl-6">
+                <div class="col-12 col-md-9 col-lg-5 col-xl-6 small-font">
                     <h1 class="mb-2">Page Unavailable</h1>
 
                     <p>Sorry for the inconvenience, but the page you're looking for 

@@ -16,7 +16,7 @@
         <title>List of Expenses</title>
         <%@include file='css.jsp'%>
     </head>
-    <body id="small-font" class="d-flex flex-column">
+    <body class="d-flex flex-column small-font">
         <%@include file='header.jsp'%>
         
         <div id="content" class="container-fluid">            
@@ -77,14 +77,14 @@
                         <td>
                             <div class="d-grid gap-2 d-md-flex text-center justify-content-center">
                                 <form name="UpdateButton" method="post" action="Expenses">
-                                    <input name="action" type="submit" value="Update" id="update" class="btn btn-outline-primary btn-sm">                 
+                                    <input name="action" type="submit" value="Update" id="update" class="btn btn-outline-primary btn-sm small-font">                 
                                     <!--references for updating the record-->
                                     <input name="updateDate" type="hidden" value="<%= e.getDate() %>"/>
                                     <input name="updateDescr" type="hidden" value="<%= e.getDescription() %>"/>
                                 </form>
 
                                 <form name="DeleteButton" method="post" action="Expenses">
-                                    <input name="action" type="submit" value="Delete" id="delete" class="btn btn-outline-danger btn-sm">
+                                    <input name="action" type="submit" value="Delete" id="delete" class="btn btn-outline-danger btn-sm small-font">
                                     <input name="date" type="hidden" value="<%=e.getDate()%>">
                                     <input name="descr" type="hidden" value="<%=e.getDescription()%>">
                                 </form>
