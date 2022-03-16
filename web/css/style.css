@@ -21,9 +21,14 @@ nav {
     margin-bottom: 5vmin;
 }
 
-#img-size {
+#happy-coin-size {
     max-height: 25vmin; 
     max-width: 25vmin;
+}
+
+#sad-coin-size {
+    max-height: 20vmin; 
+    max-width: 20vmin;
 }
 
 #coinstacks-size {
