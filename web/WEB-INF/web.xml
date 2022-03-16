@@ -58,9 +58,10 @@
     </session-config>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
+        <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
     <error-page>
         <exception-type>java.lang.Throwable</exception-type>
-        <location>/errorPage.jsp</location>
+        <location>/errorpage.jsp</location>
     </error-page>
 </web-app>
