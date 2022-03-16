@@ -8,17 +8,27 @@ and open the template in the editor.
     Author     : star
 */
 
-header {
-    width: 100%; 
+body {
+    min-height: 100vh;
 }
 
-footer {
-    width: 100%; 
-    position: fixed;
-    text-align: center;
-    left: 0;
-    right: 0;
-    bottom: 0;  
+nav {
+    text-align: center; 
+}
+
+#content {
+    margin-top: 8vmin;
+    margin-bottom: 5vmin;
+}
+
+#img-size {
+    max-height: 25vmin; 
+    max-width: 25vmin;
+}
+
+#coinstacks-size {
+    max-height: 18vmin; 
+    max-width: 18vmin;
 }
 
 #displayresult-container {
