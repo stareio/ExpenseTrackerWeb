@@ -96,7 +96,7 @@ nav {
         width: 6.5em;
     }
     
-    #add-btn {
+    #add-record-btn {
         font-size: 2.65vw;
         width: 4em;
     }
@@ -131,9 +131,9 @@ nav {
         width: 4em;
     }
     
-    #add-btn {
-        font-size: 3.1vw;
-        width: 5em;
+    #add-record-btn {
+        font-size: 3.25vw;
+        width: 6.25em;
     }
     
     #add-entry-btn, #update-entry-btn {
@@ -168,9 +168,9 @@ nav {
         width: 5em;
     }
     
-    #add-btn {
+    #add-record-btn {
         font-size: 1em;
-        width: 6em;
+        width: 7em;
     }
  
     #add-entry-btn, #update-entry-btn {
