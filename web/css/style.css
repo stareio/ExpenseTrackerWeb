@@ -31,7 +31,12 @@ nav {
     max-width: 20vmin;
 }
 
-#coinstacks-size {
+#coin-pile-size {
+    max-height: 25vmin; 
+    max-width: 25vmin;
+}
+
+#coin-stacks-size {
     max-height: 18vmin; 
     max-width: 18vmin;
 }
