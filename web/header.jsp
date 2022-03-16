@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<header class="py-3 mb-3 border-bottom bg-light">
+<nav class="fixed-top py-3 mb-3 border-bottom navbar-light bg-light">
     <div class="container">
         <div class="d-flex justify-content-center align-items-center mb-lg-0 me-lg-auto text-dark text-decoration-none">
             <i class="bi bi-piggy-bank me-2" style="font-size: 25px" alt="Logo"></i>
@@ -15,4 +15,9 @@
             </span>
         </div>
     </div>
-</header>
+</nav>
+
+<!--
+reference:
+https://getbootstrap.com/docs/5.0/examples/headers/#
+-->
