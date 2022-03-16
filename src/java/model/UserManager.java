@@ -26,7 +26,7 @@ public class UserManager {
         
         try {
             if (checkCreds()) {
-                String query = "SELECT * FROM useracc WHERE username = ?";
+                String query = "SELECT * FROM expensedb.useracc WHERE username = ?";
                 PreparedStatement ps = conn.prepareStatement(query);
                 ps.setString(1, loginName);
 
@@ -60,7 +60,7 @@ public class UserManager {
     public boolean checkCreds() {
         
         try {
-            String query = "SELECT * FROM useracc WHERE username = ? AND password = ?";
+            String query = "SELECT * FROM expensedb.useracc WHERE username = ? AND password = ?";
             PreparedStatement ps = conn.prepareStatement(query);
             
             ps.setString(1, username);

@@ -40,7 +40,7 @@ public class ExpenseManager {
                 switch (action) {
                     case "Delete":
                         {
-                            query = "DELETE FROM expense WHERE date = ? AND description = ?";
+                            query = "DELETE FROM expensedb.expense WHERE date = ? AND description = ?";
                             PreparedStatement ps = conn.prepareStatement(query);
                             
                             ps.setString(1, date);
@@ -52,7 +52,7 @@ public class ExpenseManager {
                         }
                     case "Add Record":
                         {
-                            query = "INSERT INTO expense VALUES(?,?,?,?,?)";
+                            query = "INSERT INTO expensedb.expense VALUES(?,?,?,?,?)";
                             PreparedStatement ps = conn.prepareStatement(query);
                             
                             ps.setString(1, date);
@@ -67,7 +67,7 @@ public class ExpenseManager {
                         }
                     case "Update Record":
                         {
-                            query = "UPDATE expense SET date=?, income_expense=?, " +
+                            query = "UPDATE expensedb.expense SET date=?, income_expense=?, " +
                                     "amount=?, category=?, description=? " +
                                     "WHERE (date=? AND description=?)";
                             PreparedStatement ps = conn.prepareStatement(query);
@@ -98,7 +98,7 @@ public class ExpenseManager {
             switch (action) {
                 case "Update":
                     {
-                        query = "SELECT * FROM expense WHERE date = ? AND description = ?";
+                        query = "SELECT * FROM expensedb.expense WHERE date = ? AND description = ?";
                         PreparedStatement ps = conn.prepareStatement(query);                        
                         
                         ps.setString(1, updateDate);
@@ -124,7 +124,7 @@ public class ExpenseManager {
                     }
                 default:
                     {
-                        query = "SELECT * FROM expense ORDER BY date";
+                        query = "SELECT * FROM expensedb.expense ORDER BY date";
                         PreparedStatement ps = conn.prepareStatement(query);
 
                         ResultSet rs = ps.executeQuery();
