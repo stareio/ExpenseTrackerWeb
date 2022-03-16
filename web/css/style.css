@@ -21,27 +21,6 @@ nav {
     margin-bottom: 5vmin;
 }
 
-#happy-coin-size {
-    max-height: 25vmin; 
-    max-width: 25vmin;
-}
-
-#sad-coin-size {
-    max-height: 20vmin; 
-    max-width: 20vmin;
-}
-
-#coin-pile-size {
-    max-height: 23vmin; 
-    max-width: 23vmin;
-}
-
-#coin-stacks-size {
-    min-width: 8vmin;
-    max-height: 12vmin; 
-    max-width: 12vmin;
-}
-
 #displayresult-container {
     min-width: 70%;
     max-width: 90%;
@@ -67,3 +46,94 @@ nav {
     min-width: 75px;
 }
 
+/*images*/
+#happy-coin-size {
+    max-height: 25vmin; 
+    max-width: 25vmin;
+}
+
+#sad-coin-size {
+    max-height: 20vmin; 
+    max-width: 20vmin;
+}
+
+#coin-pile-size {
+    max-height: 23vmin; 
+    max-width: 23vmin;
+}
+
+#coin-stacks-size {
+    min-width: 8vmin;
+    max-height: 18vmin; 
+    max-width: 18vmin;
+}
+
+#error-conn {
+    max-height: 14vmin; 
+    max-width: 14vmin;   
+}
+
+/*RFS*/
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {  
+    h1 {
+        font-size: 4.5vw;
+    }
+    
+    #small-font, #input-span, input {
+        font-size: 2.5vw;
+    }
+    
+    #input-span {
+        padding-left: 1.5vw;
+    }
+    
+    #submit-btn {
+        font-size: 2.65vw;
+        width: 6.5em;
+    }
+}
+ 
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {  
+    h1 {
+        font-size: 4.75vw;
+    }
+    
+    #small-font, #input-span, input {
+        font-size: 2.75vw;
+    }
+    
+    #input-span {
+        padding-left: 2vw;
+    }
+    
+    #submit-btn {
+        font-size: 3.25vw;
+        width: 4em;
+    }
+}
+ 
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 990px) { 
+    h1 {
+        font-size: 2.5vw;
+    }
+    
+    #small-font, #input-span, input {
+        font-size: 1.4vw;
+    }
+    
+    #input-span {
+        padding-left: .75vw;
+    }
+    
+    #submit-btn {
+        font-size: 1.25vw;
+    }
+}
+
+/*
+references:
+media query template: https://bootstrapcreative.com/bootstrap-4-media-queries/
+*/
