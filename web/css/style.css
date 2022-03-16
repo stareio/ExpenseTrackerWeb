@@ -95,7 +95,7 @@ nav {
     
     #return-btn {
         font-size: 2.65vw;
-        width: 6.75em;
+        width: 14vw;
     }
 }
  
@@ -119,8 +119,10 @@ nav {
     }
     
     #return-btn {
-        font-size: 2.65vw;
-        width: 5em;
+        font-size: 2.35vw;
+        height: 5vw;
+        width: 12vw;
+        padding: 2px;
     }
 }
  
@@ -140,10 +142,14 @@ nav {
     
     #submit-btn {
         font-size: 1.25vw;
+        width: 5.5vw;
     }
     
     #return-btn {
-        font-size: 1.6vw;
+        font-size: 1.45vw;
+        height: 3vw;
+        width: 8vw;
+        padding: 2px;
     }
 }
 
