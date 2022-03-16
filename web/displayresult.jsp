@@ -19,19 +19,23 @@
     <body class="d-flex flex-column">
         <%@include file='header.jsp'%>
         
-        <div>            
+        <div id="content" class="container-fluid">            
             <%           
                 User account = (User) session.getAttribute("account");  
                 ExpenseManager em = new ExpenseManager();
                 List<Expense> result = (ArrayList) request.getAttribute("results");
             %>
             
+            <div class="pt-5 text-center">
+                <img src="css/coin_coinpile.png" id="coin-pile-size" alt="piles of coins image">
+            </div>
+            
             <div class="row d-flex justify-content-center">
-                <div class="col-sm-10">
+                <div class="col-sm-5">
                     <div class="card shadow-2-strong text-black bg-light pt-3" style="border-radius: 1rem;">
                         <h1 class="text-center pb-4">Hello, <% out.print(account.getNickname()); %>!</h1>
 
-                        <table id="compute-table" class="table table-borderless table-sm">
+                        <table id="compute-table" class="table table-borderless table">
                         <tr class="text-center">
                             <th>Income</th>
                             <th>Expenses</th>
@@ -94,11 +98,16 @@
                 </table>
 
             </div>          
-
-            <form name="AddRecord" method="post" action="Expenses">
-                <input name="action" type="submit" value="Add an Entry" class="btn btn-primary" style="font-size: 15px;"/>
-            </form>
-            
+             
+            <div class="container-fluid mb-5 text-center">
+                <form name="AddRecord" method="post" action="Expenses">
+                    <input name="action" type="submit" value="Add an Entry" class="btn btn-primary" style="font-size: 1.1em;"/>
+                </form>
+            </div>
+                
+            <div class="container-fluid py-5 text-center">
+                <img src="css/coin_coinstacks.png" id="coin-stacks-size" alt="stacks of coins image">
+            </div>
         </div>
                 
         <%@include file='footer.jsp'%>
