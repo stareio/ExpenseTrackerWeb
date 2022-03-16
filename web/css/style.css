@@ -92,6 +92,11 @@ nav {
         font-size: 2.65vw;
         width: 6.5em;
     }
+    
+    #return-btn {
+        font-size: 2.65vw;
+        width: 6.75em;
+    }
 }
  
 /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
@@ -112,6 +117,11 @@ nav {
         font-size: 3.25vw;
         width: 4em;
     }
+    
+    #return-btn {
+        font-size: 2.65vw;
+        width: 5em;
+    }
 }
  
 /* Large devices (desktops, 992px and up) */
@@ -130,6 +140,10 @@ nav {
     
     #submit-btn {
         font-size: 1.25vw;
+    }
+    
+    #return-btn {
+        font-size: 1.6vw;
     }
 }
 
