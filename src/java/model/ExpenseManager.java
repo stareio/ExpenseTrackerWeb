@@ -50,7 +50,7 @@ public class ExpenseManager {
                             System.out.println("record deleted!");
                             break;
                         }
-                    case "Add Record":
+                    case "Add Entry":
                         {
                             query = "INSERT INTO expensedb.expense VALUES(?,?,?,?,?)";
                             PreparedStatement ps = conn.prepareStatement(query);
@@ -65,7 +65,7 @@ public class ExpenseManager {
                             System.out.println("record added!");
                             break;
                         }
-                    case "Update Record":
+                    case "Update Entry":
                         {
                             query = "UPDATE expensedb.expense SET date=?, income_expense=?, " +
                                     "amount=?, category=?, description=? " +

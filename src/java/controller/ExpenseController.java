@@ -95,7 +95,7 @@ public class ExpenseController extends HttpServlet {
                     System.out.println("date: " + date);
                     System.out.println("descr: " + descr);
                     
-                    if (action.equals("Add Record") || action.equals("Update Record")
+                    if (action.equals("Add Entry") || action.equals("Update Entry")
                             || action.equals("Update")) {
                         
                         // reference values for update record
@@ -115,7 +115,7 @@ public class ExpenseController extends HttpServlet {
                 boolean check = true;
 
                 // for adding/updating an entry, check date & amount values
-                if (action.equals("Add Record") || action.equals("Update Record")) {
+                if (action.equals("Add Entry") || action.equals("Update Entry")) {
                     
                     check = ev.checkDate(date) & check;
                     check = ev.checkAmount(amount) & check;

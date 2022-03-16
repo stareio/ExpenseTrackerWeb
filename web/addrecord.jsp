@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Add Record</title>
+        <title>Add Entry</title>
         <%@include file='css.jsp'%>
     </head>
     <body class="d-flex flex-column h-100">
@@ -26,7 +26,7 @@
 
             <h1>Hello, <% out.print(account.getNickname()); %>! Let's <u>add</u> a record!</h1>
 
-            <form name="AddRecordForm" method="post" id="add" action="Expenses" autocomplete="off">
+            <form name="AddEntryForm" method="post" id="add" action="Expenses" autocomplete="off">
 
                 <p>Date</p>
                 <input name="date" type="text" size="25" placeholder="ex: 01/23/2000" required/>
@@ -47,7 +47,7 @@
                 <input name="descr" type="text" size="25" placeholder="ex: Books, Rice" required/>
 
                 <div>
-                    <input name="action" type="submit" id="add-btn" value="Add Record"/>
+                    <input name="action" type="submit" id="add-btn" value="Add Entry"/>
                 </div>
             </form>
         </div>

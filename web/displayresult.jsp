@@ -100,7 +100,7 @@
             </div>          
              
             <div class="container-fluid mb-4 text-center">
-                <form name="AddRecord" method="post" action="Expenses">
+                <form name="AddEntry" method="post" action="Expenses">
                     <input name="action" type="submit" value="Add an Entry" class="btn btn-primary"/>
                 </form>
             </div>
