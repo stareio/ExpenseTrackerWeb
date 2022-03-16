@@ -21,16 +21,6 @@ nav {
     margin-bottom: 5vmin;
 }
 
-#displayresult-container {
-    min-width: 70%;
-    max-width: 90%;
-}
-
-#displayresult-container td:last-child {
-    align-items: center;
-    /*padding: 10px;*/
-}
-
 #compute-table {
     margin-left: auto;
     margin-right: auto;
@@ -38,8 +28,17 @@ nav {
     max-width: 50%;
 }
 
+#update-table {
+    width: 60%;
+    text-align: center;
+}
+
 #compute-table td:hover, #update-table td:hover {
     background-color: rgba(0,0,0,.075);
+}
+
+.form-inex-input {
+    max-width: 7em;
 }
 
 #update, #delete {
