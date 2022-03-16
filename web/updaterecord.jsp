@@ -14,77 +14,116 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Update Record</title>
+        <title>Update Entry</title>
         <%@include file='css.jsp'%>
     </head>
-    <body class="d-flex flex-column h-100">
+    <body id="small-font" class="d-flex flex-column h-100">
         <%@include file='header.jsp'%>
         
-        <%
-            User account = (User) session.getAttribute("account");
-            ExpenseManager em = new ExpenseManager();
-            List<Expense> result = (ArrayList) request.getAttribute("results");
-        %>
-        
-        <div>
-            <div class="container-fluid align-items-center">
-                <img src="css/coin_meditate.png" alt="meditating coin image" class="img-fluid">
-            </div>
+        <div id="content" class="container-fluid"> 
+            <%
+                User account = (User) session.getAttribute("account");
+                ExpenseManager em = new ExpenseManager();
+                List<Expense> result = (ArrayList) request.getAttribute("results");
+            %>
 
-            <div class="container" id="displayresult-container">
-                <h1>Hello, <% out.print(account.getNickname()); %>! Let's <u>update</u> a record!</h1>
+                <div class="pt-5 text-center">
+                    <img src="css/coin_meditate.png" alt="meditating coin image" class="pb-4">
+                </div>
 
-                <table id="update-table" class="table table-sm table-striped p-2">
-                    <tr>
-                        <th>Date</th>
-                        <th>Income/Expense</th>
-                        <th>Amount</th>
-                        <th>Category</th>
-                        <th>Description</th>
-                    </tr>
+                <div class="row d-flex justify-content-center p-5">
+                    <h1 class="text-center pb-4">Hello, <% out.print(account.getNickname()); %>! Let's <u>update</u> a record!</h1>
 
-                    <%                
-                        for (Expense e : result) {
-                    %>
-                            <tr>
-                                <td><%= em.printDate(e.getDate()) %></td>
-                                <td><%= e.getInex() %></td>
-                                <td><%= em.printAmount(e.getAmount()) %></td>
-                                <td><%= e.getCategory() %></td>
-                                <td><%= e.getDescription() %></td>
-                            </tr>
-                    <%
-                        }
-                    %>
-                </table>
+                    <table id="update-table" class="table table-sm table-striped p-2">
+                        <tr>
+                            <th>Date</th>
+                            <th>Income/Expense</th>
+                            <th>Amount</th>
+                            <th>Category</th>
+                            <th>Description</th>
+                        </tr>
 
-                <form name="UpdateRecordForm" method="post" id="update" action="Expenses" autocomplete="off">
+                        <%                
+                            for (Expense e : result) {
+                        %>
+                                <tr>
+                                    <td><%= em.printDate(e.getDate()) %></td>
+                                    <td><%= e.getInex() %></td>
+                                    <td><%= em.printAmount(e.getAmount()) %></td>
+                                    <td><%= e.getCategory() %></td>
+                                    <td><%= e.getDescription() %></td>
+                                </tr>
+                        <%
+                            }
+                        %>
+                    </table>
+                </div>
 
-                    <p>Date</p>
-                    <input name="date" type="text" size="25" placeholder="ex: 01/23/2000" required/>
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-5">
+                    <div class="card shadow-2-strong text-black bg-light px-4 py-3" style="border-radius: 1rem;">
+                        <form name="UpdateEntryForm" method="post" id="update" action="Expenses" autocomplete="off">
 
-                    <p>Income/Expense</p>
-                    <select name="inex">
-                        <option value="Income">Income</option>
-                        <option value="Expense">Expense</option>
-                    </select>
+                            <div class="mb-3">
+                                <label for="inputDate" class="form-label ps-1">Date</label>
+                                <input name="date" id="small-font" type="text" placeholder="ex: 01/23/2000"
+                                       aria-describedby="dateHelp" class="form-control form-text-input" required/>
+                                <div id="dateHelp" class="form-text ps-1">
+                                    The date must follow the MM/dd/YYYY format.
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="inputDate" class="form-label ps-1">Income/Expense</label>
+                                <select name="inex" id="small-font" aria-describedby="inexHelp" class="form-select form-inex-input">
+                                    <option value="Income">Income</option>
+                                    <option value="Expense">Expense</option>
+                                </select>
+                                <div id="inexHelp" class="form-text ps-1">
+                                    Indicate whether the record is an income or an expense.
+                                </div>
+                            </div>
 
-                    <p>Amount</p>
-                    <input name="amount" type="text" size="25" placeholder="ex: 4500, 256.25" required/>
+                            <div class="mb-3">
+                                <label for="inputAmount" class="form-label ps-1">Amount</label>
+                                <input name="amount" id="small-font" type="text" placeholder="ex: 4500, 256.25"
+                                       aria-describedby="amountHelp" class="form-control form-text-input" required/>
+                                <div id="amountHelp" class="form-text ps-1">
+                                    Must be 1-20 characters long and have 0-2 decimal places.
+                                </div>
+                            </div>           
 
-                    <p>Category</p>
-                    <input name="category" type="text" size="25" placeholder="ex: Education, Food" required/>
+                            <div class="mb-3">
+                                <label for="inputCategory" class="form-label ps-1">Category</label>
+                                <input name="category" id="small-font" type="text" placeholder="ex: Education, Food"
+                                       aria-describedby="categoryHelp" class="form-control form-text-input" required/>
+                                <div id="categoryHelp" class="form-text ps-1">
+                                    Must be 1-15 characters long.
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="inputDescription" class="form-label ps-1">Description</label>
+                                <input name="descr" id="small-font" type="text" placeholder="ex: Education, Food"
+                                       aria-describedby="descriptionHelp" class="form-control form-text-input" required/>
+                                <div id="descriptionHelp" class="form-text ps-1">
+                                    Must be 1-20 characters long.
+                                </div>
+                            </div>
 
-                    <p>Description</p>
-                    <input name="descr" type="text" size="25" placeholder="ex: Books, Rice" required/>
-
-                    <div>
-                        <input name="action" type="submit" id="update-btn" value="Update Record"/>
-                        <input name="updateDate" type="hidden" value=""/>
-                        <input name="updateDescr" type="hidden" value=""/>
+                            <div class="container-fluid my-4 text-center">
+                                <input name="action" type="submit" id="update-btn" value="Update Entry" class="btn btn-primary"/>
+                                <input name="updateDate" type="hidden" value=""/>
+                                <input name="updateDescr" type="hidden" value=""/>
+                            </div>
+                        </form>
                     </div>
-                </form>
-            </div>
+                </div>
+            </div>     
+                    
+            <div class="container-fluid py-5 text-center">
+                <img src="css/coin_coinstacks.png" id="coin-stacks-size" alt="stacks of coins image">
+            </div>        
         </div>
                 
         <%@include file='footer.jsp'%>
