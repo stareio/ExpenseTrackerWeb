@@ -15,7 +15,7 @@
     <body class="d-flex flex-column h-100">
         <%@include file='header.jsp'%>
         
-        <div id="content" class="container-fluid">
+        <div id="content" class="container-fluid pt-5">
             <div class="pt-5 text-center">
                 <img src="css/error_conn_edited.png" id="error-conn" alt="database connection error image" class="mb-2">
             </div>

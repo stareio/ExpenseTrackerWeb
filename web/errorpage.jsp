@@ -15,14 +15,19 @@
     <body class="d-flex flex-column h-100">
         <%@include file='header.jsp'%>
         
-        <div>
-            <img src="css/coin_tired.png" alt="tired coin image" class="img-fluid">
+        <div id="content" class="container-fluid pt-5">
+            <div class="pt-5 text-center">
+                <img src="css/coin_tired.png" alt="tired coin image" class="img-fluid">
+            </div>
             
-            <h1>Page Unavailable</h1>
+            <div class="row d-flex justify-content-center p-4 text-center">
+                <div id="small-font" class="col-12 col-md-9 col-lg-5 col-xl-6">
+                    <h1 class="mb-2">Page Unavailable</h1>
 
-            <!--image-->
-
-            <p>Sorry for the inconvenience, but the page you're looking for isn't available.</p>
+                    <p>Sorry for the inconvenience, but the page you're looking for 
+                        isn't available.</p>
+                </div>
+            </div>
         </div>
             
         <%@include file='footer.jsp'%>

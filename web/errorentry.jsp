@@ -15,16 +15,22 @@
     <body class="d-flex flex-column h-100">
         <%@include file='header.jsp'%>
         
-        <div>
-            <img src="css/coin_sad.png" alt="sad coin image" class="img-fluid">
+        <div id="content" class="container-fluid pt-5">
+            <div class="pt-5 text-center">
+                <img src="css/coin_sad.png" alt="sad coin image" class="img-fluid">
+            </div> 
             
-            <h1>Invalid Entry</h1>
+            <div class="row d-flex justify-content-center p-4 text-center">
+                <div id="small-font" class="col-12 col-md-9 col-lg-5 col-xl-6">
+                    <h1 class="mb-2">Invalid Entry</h1>
 
-            <p>Please input a valid entry</p>
+                    <p>Please input a valid entry</p>
 
-            <form name="ReturnForm" method="post" action="Expenses">
-                <input name="action" type="submit" id="submit-btn" value="Return"/>
-            </form>
+                    <form name="ReturnForm" method="post" action="Expenses">
+                        <input name="action" id="return-btn" type="submit" value="Return" class="btn btn-primary mt-4"/>
+                    </form>
+                </div>
+            </div>
         </div>
         
         <%@include file='footer.jsp'%>
