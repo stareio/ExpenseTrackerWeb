@@ -15,7 +15,11 @@
     <body class="d-flex flex-column h-100">
         <%@include file='header.jsp'%>
                     
-        <div>
+        <div id="content" class="container-fluid">
+            <div class="pt-5 text-center">
+                <img src="css/coin_sad.png" alt="sad coin image" id="img-size" class="pb-4">
+            </div>
+            
             <div class="row d-flex justify-content-center">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-6">
                     <div class="card shadow-2-strong text-black bg-light" style="border-radius: 1rem;">
@@ -49,8 +53,18 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="container-fluid py-5 text-center">
+                <img src="css/coin_coinstacks.png" id="coinstacks-size" alt="stacks of coins image">
+            </div>
         </div>
         
         <%@include file='footer.jsp'%>
     </body>
 </html>
+
+<!--
+references:
+login template: https://mdbootstrap.com/docs/standard/extended/login/
+coin images: https://www.shutterstock.com/image-vector/sad-coin-character-wallpaper-free-space-1465036271
+-->
