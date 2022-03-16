@@ -55,7 +55,7 @@
             </div>
             
             <div class="container-fluid py-5 text-center">
-                <img src="css/coin_coinstacks.png" id="coinstacks-size" alt="stacks of coins image">
+                <img src="css/coin_coinstacks.png" id="coin-stacks-size" alt="stacks of coins image">
             </div>
         </div>
         
