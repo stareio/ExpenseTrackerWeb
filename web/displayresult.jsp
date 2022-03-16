@@ -99,9 +99,9 @@
 
             </div>          
              
-            <div class="container-fluid mb-5 text-center">
+            <div class="container-fluid mb-4 text-center">
                 <form name="AddRecord" method="post" action="Expenses">
-                    <input name="action" type="submit" value="Add an Entry" class="btn btn-primary" style="font-size: 1.1em;"/>
+                    <input name="action" type="submit" value="Add an Entry" class="btn btn-primary"/>
                 </form>
             </div>
                 
