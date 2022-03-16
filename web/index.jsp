@@ -12,45 +12,51 @@
         <title>Login Page</title>
         <%@include file='css.jsp'%>
     </head>
-    <body class="d-flex flex-column h-100">
+    <body class="container-fluid d-flex flex-column py-100">
         <%@include file='header.jsp'%>
         
-        <div>    
-            
-            <img src="css/coin_happy.png" alt="happy coin image" class="img-fluid">
-            
-            <div class="row d-flex justify-content-center">
-                <div class="col-12 col-md-8 col-lg-6 col-xl-6">
-                    <div class="card shadow-2-strong text-black bg-light" style="border-radius: 1rem;">
-                        <form name="LoginForm" method="post" action="Expenses" autocomplete="off" class="card-body p-5 text-center">
+        <div id="content" class="container-fluid">
+            <div class="pt-5 text-center">
+                <img src="css/coin_happy.png" alt="happy coin image" id="img-size">
+            </div>
 
-                            <h3 class="mb-5">Login</h3>
+            <div class="container-fluid my-100">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-6">
+                        <div class="card shadow-2-strong text-black bg-light p-40" style="border-radius: 1rem;">
+                            <form name="LoginForm" method="post" action="Expenses" autocomplete="off" class="card-body p-5 text-center">
 
-                            <div class="input-group input-group-sm mb-3">
-                                <span class="input-group-text" style="width: 6em;">Username</span>
-                                <input name="loginUsername" type="text" class="form-control"/>
-                            </div>
+                                <h3 class="mb-5">Login</h3>
 
-                            <div class="input-group input-group-sm mb-3">
-                                <span class="input-group-text" style="width: 6em;">Password</span>
-                                <input name="loginPassword" type="password" class="form-control"/>
-                            </div>
+                                <div class="input-group input-group-sm mb-3">
+                                    <span class="input-group-text" style="width: 6em;">Username</span>
+                                    <input name="loginUsername" type="text" class="form-control"/>
+                                </div>
 
-                            <input name="action" type="submit" value="Login" class="btn btn-primary" style="font-size: 14px;"/>
+                                <div class="input-group input-group-sm mb-3">
+                                    <span class="input-group-text" style="width: 6em;">Password</span>
+                                    <input name="loginPassword" type="password" class="form-control"/>
+                                </div>
 
-                        </form>
+                                <input name="action" type="submit" value="Login" class="btn btn-primary" style="font-size: 14px;"/>
+
+                            </form>
+                        </div>
                     </div>
                 </div>
+            </div>            
+
+            <div class="container-fluid py-5 text-center">
+                <img src="css/coin_coinstacks.png" id="coinstacks-size" alt="stacks of coins image">
             </div>
         </div>
-        
+            
         <%@include file='footer.jsp'%>
     </body>
 </html>
 
 <!--
 references:
-header: https://getbootstrap.com/docs/5.0/examples/headers/#
 login template: https://mdbootstrap.com/docs/standard/extended/login/
-gold coin gif: https://tenor.com/view/coins-gold-coins-spin-gif-17512701
+coin images: https://www.shutterstock.com/image-vector/sad-coin-character-wallpaper-free-space-1465036271
 -->
