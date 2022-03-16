@@ -16,7 +16,7 @@
         <title>List of Expenses</title>
         <%@include file='css.jsp'%>
     </head>
-    <body class="d-flex flex-column">
+    <body id="small-font" class="d-flex flex-column">
         <%@include file='header.jsp'%>
         
         <div id="content" class="container-fluid">            
@@ -27,7 +27,7 @@
             %>
             
             <div class="pt-5 text-center">
-                <img src="css/coin_coinpile.png" id="coin-pile-size" alt="piles of coins image">
+                <img src="css/coin_coinpile.png" id="coin-pile-size" alt="piles of coins image" class="pb-4">
             </div>
             
             <div class="row d-flex justify-content-center">
@@ -35,7 +35,7 @@
                     <div class="card shadow-2-strong text-black bg-light pt-3" style="border-radius: 1rem;">
                         <h1 class="text-center pb-4">Hello, <% out.print(account.getNickname()); %>!</h1>
 
-                        <table id="compute-table" class="table table-borderless table">
+                        <table id="compute-table p-2" class="table table-borderless table">
                         <tr class="text-center">
                             <th>Income</th>
                             <th>Expenses</th>
@@ -115,9 +115,9 @@
 </html>
 
 <script>
-if ( window.history.replaceState ) {
-  window.history.replaceState( null, null, window.location.href );
-}
+    if ( window.history.replaceState ) {
+      window.history.replaceState( null, null, window.location.href );
+    }
 </script>
 
 <!--
