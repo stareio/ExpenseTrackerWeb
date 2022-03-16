@@ -17,7 +17,7 @@
                     
         <div id="content" class="container-fluid">
             <div class="pt-5 text-center">
-                <img src="css/coin_sad.png" alt="sad coin image" id="img-size" class="pb-4">
+                <img src="css/coin_sad.png" id="sad-coin-size" alt="sad coin image" class="pb-4">
             </div>
             
             <div class="row d-flex justify-content-center">
