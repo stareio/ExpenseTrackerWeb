@@ -55,7 +55,14 @@ public class ExpenseManager {
                             query = "INSERT INTO expensedb.expense VALUES(?,?,?,?,?)";
                             PreparedStatement ps = conn.prepareStatement(query);
                             
-                            ps.setString(1, date);
+                            System.out.println("date: " + date);
+                            
+                            // reformat the input date for MySQL
+                            SimpleDateFormat sdfParse = new SimpleDateFormat("MM/dd/yyyy");
+                            SimpleDateFormat sdfFormat = new SimpleDateFormat("yyyy-MM-dd");
+                            Date parsedDate = sdfParse.parse(date);
+                            
+                            ps.setString(1, sdfFormat.format(parsedDate));
                             ps.setString(2, inex);
                             ps.setString(3, amount);
                             ps.setString(4, category);
@@ -72,7 +79,7 @@ public class ExpenseManager {
                                     "WHERE (date=? AND description=?)";
                             PreparedStatement ps = conn.prepareStatement(query);
 
-                            // reformat the input date
+                            // reformat the input date for MySQL
                             SimpleDateFormat sdfParse = new SimpleDateFormat("MM/dd/yyyy");
                             SimpleDateFormat sdfFormat = new SimpleDateFormat("yyyy-MM-dd");
                             Date parsedDate = sdfParse.parse(date);
