@@ -29,13 +29,13 @@
                                 <h1 class="mb-5">Login</h1>
 
                                 <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text small-font" style="width: 6em;">Username</span>
-                                    <input name="loginUsername" type="text" class="form-control small-font"/>
+                                    <span id="login-span" class="input-group-text small-font" style="width: 6em;">Username</span>
+                                    <input id="login-input" name="loginUsername" type="text" class="form-control small-font"/>
                                 </div>
 
                                 <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text small-font" style="width: 6em;">Password</span>
-                                    <input name="loginPassword" type="password" class="form-control small-font"/>
+                                    <span id="login-span" class="input-group-text small-font" style="width: 6em;">Password</span>
+                                    <input id="login-input" name="loginPassword" type="password" class="form-control small-font"/>
                                 </div>
 
                                 <input name="action" id="submit-btn" type="submit" value="Login" class="btn btn-primary"/>
