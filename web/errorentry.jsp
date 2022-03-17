@@ -27,7 +27,7 @@
                     <p>Please input a valid entry</p>
 
                     <form name="ReturnForm" method="post" action="Expenses">
-                        <input name="action" id="return-btn" type="submit" value="Return" class="btn btn-primary mt-4"/>
+                        <input name="action" id="submit-btn" type="submit" value="Return" class="btn btn-primary mt-4"/>
                     </form>
                 </div>
             </div>

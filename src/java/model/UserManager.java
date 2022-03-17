@@ -31,7 +31,6 @@ public class UserManager {
                 ps.setString(1, loginName);
 
                 ResultSet rs = ps.executeQuery();
-                user = new User();
 
                 while (rs.next()) {
                     String u = rs.getString("username");
