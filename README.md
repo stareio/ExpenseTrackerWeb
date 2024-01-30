@@ -6,7 +6,7 @@ freeCodeCamp's [Responsive Web Design tutorial](https://www.freecodecamp.org/lea
 
 # Demonstration
 ## Adding an Entry
-![Add Demo GIF](gifs/4_Add.gif)
+![Add Demo GIF](gifs/Add.gif)
 
 ## Responsiveness
-![Responsiveness Demo GIF (4th Part)](gifs/1-4_Responsive.gif)
+![Responsiveness Demo GIF](gifs/Responsive.gif)
