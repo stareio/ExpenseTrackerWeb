@@ -5,7 +5,7 @@ Aside from that, we were also asked to apply what we have learned from
 freeCodeCamp's [Responsive Web Design tutorial](https://www.freecodecamp.org/learn/2022/responsive-web-design/).
 
 # Description
-The web app has a login system for users wherein the credentials must be created first in the database. CRUD is implemented in the expense system that allows the user to keep track expenses and income. The total income, expenses, and remaining balance of the user is computed based on all the expense and income entries.
+The web app has a login system for users wherein the credentials must be created first in the database. CRUD is implemented in the expense system that allows the user to keep track of the user's expenses and income. The total income, expenses, and remaining balance of the user is computed based on all the expense and income entries.
 
 # Demonstration
 The GIFs in this section may take a while to load.
